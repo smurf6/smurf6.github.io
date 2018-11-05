@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>小鱼干音乐小屋</title>
+    <link rel="icon" type="image/jpg" href="./public/image/head.jpg">
+    <link rel="stylesheet" href="./public/vender/bootstrap-3.3.7/css/bootstrap.css"/>
+    <link rel="stylesheet" href="./public//css/index.css"/>
+    <link rel="stylesheet" href="./public/css/emoji.css"/>
+    <script type="text/javascript" src="./public/vender/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./public/vender/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <style type="text/css">
+/* line 62, ../sass/tmp.scss */
+.notes {
+  display: flex;
+  height: auto;
+  opacity: 1;
+  transition: opacity 1s ease;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+/* line 71, ../sass/tmp.scss */
+.notes .note {
+  height: 132px;
+}
+/* line 72, ../sass/tmp.scss */
+.notes .note > div {
+  height: 100%;
+  width: 32px;
+  border-radius: 16px;
+  background-color: #D8D8D8;
+  color: #541F5D;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 5px 0;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.16);
+}
+/* line 87, ../sass/tmp.scss */
+.notes .note:hover div {
+  background-color: #FF6545;
+  color: #fff;
+}
+/* line 92, ../sass/tmp.scss */
+.notes .note.key {
+  height: 172px;
+}
+/* line 94, ../sass/tmp.scss */
+.notes .note.key > div {
+  background-color: #ECDCCA;
+}
+/* line 97, ../sass/tmp.scss */
+.notes .note.key:hover > div {
+  background-color: #FF6545;
+  color: #fff;
+}
+/* line 102, ../sass/tmp.scss */
+.notes .note:not(:first-child) > div {
+  margin-left: 8px;
+}
+/* line 105, ../sass/tmp.scss */
+.notes .note:not(:last-child) > div {
+  margin-right: 8px;
+}
+/* line 108, ../sass/tmp.scss */
+.notes .note span {
+  font-size: 0.7em;
+}
+
+/* line 114, ../sass/tmp.scss */
+.guitar {
+  width: 96%;
+  min-width: 772px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+/* line 120, ../sass/tmp.scss */
+.guitar.visible {
+  transition: opacity 0.5s ease;
+}
+/* line 123, ../sass/tmp.scss */
+.guitar img {
+  width: 100%;
+  display: block;
+  pointer-events: none;
+}
+/* line 128, ../sass/tmp.scss */
+.guitar .circle {
+  background-image: url(./public/vender/guitar/image/switch.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 5vw;
+  height: 5vw;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  right: 44.5%;
+  top: 33.5%;
+  cursor: pointer;
+}
+/* line 141, ../sass/tmp.scss */
+.guitar .circle.rock {
+  background-position: 0 100%;
+}
+/* line 143, ../sass/tmp.scss */
+.guitar .circle.rock:before {
+  color: #FFF;
+}
+/* line 146, ../sass/tmp.scss */
+.guitar .circle.rock:after {
+  color: #C17CA4;
+}
+/* line 150, ../sass/tmp.scss */
+.guitar .circle:before, .guitar .circle:after {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 13px;
+  text-align: center;
+  display: block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+/* line 159, ../sass/tmp.scss */
+.guitar .circle:before {
+  content: "ROCK";
+  top: -14px;
+  color: #C17CA4;
+}
+/* line 164, ../sass/tmp.scss */
+.guitar .circle:after {
+  content: "BLUES";
+  top: 100%;
+  color: #FFF;
+  position: absolute;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.page-font{
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 32px;
+    text-align: center;
+    margin-top: 450px;
+    letter-spacing:10px
+}
+.page-panel{
+    height: 650px;
+}
+/* line 188, ../sass/tmp.scss */
+html,
+body {
+  height: 100%;
+  min-width: 726px;
+}
+
+    </style>
+</head>
+<body class="body-backgroud">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="pull-left" style="overflow: auto;border-radius:30px;margin-left: 5px;margin-right: 10px"><img src="./public/image/head.jpg" height="50"></div>
+            <div class="pull-left"><a class="navbar-brand default-color" href="#">小鱼干吉他</a></div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+            <p class="navbar-text navbar-right"><a href="./piano.html" class="navbar-link">钢琴专题</a></p>
+            <p class="navbar-text navbar-right"><a href="./guitar.html" class="navbar-link">吉他专题</a></p>
+            <p class="navbar-text navbar-right">
+            <div class="btn-group navbar-right" style="margin-top:15px;" role="group">
+                <a href="#" class="dropdown-toggle" style="color: #6f6f6f;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                    首页介绍 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" style="background-color: rgba(217, 251, 251, 0.5);width:50px;">
+                    <li><a href="./index.html">首页介绍</a></li>
+                    <li><a href="./index.html#teacher-team-target">师资力量</a></li>
+                    <li><a href="./index.html#q-and-a-target">认识吉他</a></li>
+                    <li><a href="./index.html#student-team-target">课程选择</a></li>
+                    <li><a href="./index.html#about-our-target">联系我们</a></li>
+                </ul>
+            </div>
+            </p>
+        </div>
+    </div>
+</nav>
+    <div style="height: 140px"></div>
+    <div class="notes">
+        <div class="note" data-note="0">
+            <div>
+                G<span>4</span>
+            </div>
+        </div>
+        <div class="note key" data-note="1">
+            <div>
+                A<span>4</span>
+            </div>
+        </div>
+        <div class="note" data-note="2">
+            <div>
+                C<span>5</span>
+            </div>
+        </div>
+        <div class="note" data-note="3">
+            <div>
+                D<span>5</span>
+            </div>
+        </div>
+        <div class="note" data-note="4">
+            <div>
+                E<span>5</span>
+            </div>
+        </div>
+        <div class="note" data-note="5">
+            <div>
+                G<span>5</span>
+            </div>
+        </div>
+        <div class="note key" data-note="6">
+            <div>
+                A<span>5</span>
+            </div>
+        </div>
+        <div class="note" data-note="7">
+            <div>
+                C<span>6</span>
+            </div>
+        </div>
+        <div class="note" data-note="8">
+            <div>
+                D<span>6</span>
+            </div>
+        </div>
+        <div class="note" data-note="9">
+            <div>
+                D<span>#6</span>
+            </div>
+        </div>
+        <div class="note" data-note="10">
+            <div>
+                E<span>6</span>
+            </div>
+        </div>
+        <div class="note" data-note="11">
+            <div>
+                G<span>6</span>
+            </div>
+        </div>
+        <div class="note key" data-note="12">
+            <div>
+                A<span>6</span>
+            </div>
+        </div>
+        <div class="note" data-note="13">
+            <div>
+                C<span>7</span>
+            </div>
+        </div>
+        <div class="note" data-note="14">
+            <div>
+                D<span>7</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="guitar">
+        <div class="circle"></div>
+        <img src="./public/vender/guitar/image/guitar.png">
+    </div>
+
+<div class="row page-panel">
+    <div class="page-font" >一会女屌丝还要出门搬砖 知道的宝宝麻烦说一下 <i class="em em-pray"></i></div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >喜欢星期二 我要出去浪 <i class="em em-grinning_face_with_one_large_and_one_small_eye"></i> <i class="em em-grinning_face_with_one_large_and_one_small_eye"></i></div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >扒的第二首歌，以前可真懒啊 <i class="em em-angry"></i></div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >I wish every day is a holiday</div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >亲爱的宝贝祝你生日快乐 小姨爱你<i class="em em-kissing_heart"></i></div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >How wonderful a night it is</div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >这个宝宝真的很乖</div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >我们村就我一个做乐器的 请多多关照 <i class="em em-smiling_face_with_smiling_eyes_and_hand_covering_mouth"></i></div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >这些人妖不仅性感 颜值还高</div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >维多利亚 谁来 <i class="em em-woman-surfing"></i></div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >打羽毛球有约的么 <i class="em em-woman-playing-handball"></i> <i class="em em-woman-playing-water-polo"></i></div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >宝宝 你不要想不开...</div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" > 拍照的时候妹妹一直说 怎么那么美啊X10 <i class="em em-drooling_face"></i></div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" > 小时候都是我带她玩，长大了她带我玩 <i class="em em-hearts"></i></div>
+</div>
+<div class="row page-panel">
+    <div class="page-font" >美好的一天结束了 晚安 <i class="em em-first_quarter_moon_with_face"></i></div>
+</div>
+<div class="row page-panel"></div>
+<div style="height: 150px;position:fixed;bottom:0px;background-color: rgb(44, 45, 45,0);color:#ffffff">
+    <h4 class="default-color" style="margin-left: 10px">联系方式</h4>
+    <dl class="dl-horizontal" style="margin-left:-120px">
+        <dt>地址</dt>
+        <dd>厦门市海沧区****</dd>
+        <dt>手机</dt>
+        <dd>100861314520</dd>
+        <dt>微信</dt>
+        <dd>1314520</dd>
+        <dt>邮箱</dt>
+        <dd>1314520@qq.com</dd>
+    </dl>
+</div>
+
+<video id="background-video" autoplay="autoplay" muted="muted" volume="0" poster="./public/image/default-background.jpg" loop="loop" >
+    <source type="video/webm" src="./public/video/default.webm">
+    <source type="video/mp4" src="./public/video/default.mp4">
+</video>
+</body>
+</html>
+<script>
+    class Guitar {
+
+        constructor(context, buffer) {
+            this.context = context;
+            this.buffer = buffer;
+        }
+
+        setup() {
+            this.gainNode = this.context.createGain();
+            this.source = this.context.createBufferSource();
+            this.source.buffer = this.buffer;
+            this.source.connect(this.gainNode);
+            this.gainNode.connect(this.context.destination);
+
+            this.gainNode.gain.value = 0.8;
+        }
+
+        play() {
+            this.setup();
+            this.source.start(this.context.currentTime);
+        }
+
+        stop() {
+            this.gainNode.gain.exponentialRampToValueAtTime(0.001, this.context.currentTime + 0.5);
+            this.source.stop(this.context.currentTime + 0.5);
+        }
+
+    }
+
+    class Buffer {
+
+        constructor(context, urls) {
+            this.context = context;
+            this.urls = urls;
+            this.buffer = [];
+        }
+
+        loadSound(url, index) {
+            let request = new XMLHttpRequest();
+            request.open('get', url, true);
+            request.responseType = 'arraybuffer';
+            let thisBuffer = this;
+            request.onload = function () {
+                // Safari doesn't support promise based syntax
+                thisBuffer.context
+                  .decodeAudioData(request.response, function (buffer) {
+                      thisBuffer.buffer[index] = buffer;
+                      updateProgress(thisBuffer.urls.length);
+                      if (index == thisBuffer.urls.length - 1) {
+                          thisBuffer.loaded();
+                      }
+                  });
+            };
+            request.send();
+        };
+
+        getBuffer() {
+            this.urls.forEach((url, index) => {
+                this.loadSound(url, index);
+            })
+        }
+
+        loaded() {
+            document.querySelector('.loading').style.opacity = 0;
+            document.querySelector('.loading').style.height = 0;
+            document.querySelector('.notes').style.height = "auto";
+            document.querySelector('.notes').style.top = "150px";
+            document.querySelector('.notes').style.opacity = 1;
+            loaded = true;
+        }
+
+        getSound(index) {
+            return this.buffer[index];
+        }
+
+    }
+
+    let progressBar = document.querySelector('.progress');
+    let iteration = 0;
+
+    function updateProgress(total) {
+        progressBar.style.width = ++iteration / total * 100 + '%';
+    }
+
+    let guitar = null;
+    let preset = 0;
+    let loaded = false;
+
+    function playGuitar() {
+        let index = parseInt(this.dataset.note) + preset;
+        guitar = new Guitar(context, buffer.getSound(index));
+        guitar.play();
+    }
+
+    function stopGuitar() {
+        guitar.stop();
+    }
+
+    let context = new (window.AudioContext || window.webkitAudioContext)();
+
+    //let sounds = [
+    //  '/uploads/161101/piano/Piano.ff.G4.mp3',
+    //  '/uploads/161101/piano/Piano.ff.A4.mp3',
+    //  '/uploads/161101/piano/Piano.ff.C5.mp3',
+    //  '/uploads/161101/piano/Piano.ff.D5.mp3',
+    //  '/uploads/161101/piano/Piano.ff.E5.mp3'
+    //];
+    let sounds = [
+      './public/vender/guitar/mp3/Piano.ff.G4.mp3',
+      './public/vender/guitar/mp3/Piano.ff.A4.mp3',
+      './public/vender/guitar/mp3/Piano.ff.C5.mp3',
+      './public/vender/guitar/mp3/Piano.ff.D5.mp3',
+      './public/vender/guitar/mp3/Piano.ff.E5.mp3',
+
+      './public/vender/guitar/mp3/Piano.ff.G5.mp3',
+      './public/vender/guitar/mp3/Piano.ff.A5.mp3',
+      './public/vender/guitar/mp3/Piano.ff.C6.mp3',
+      './public/vender/guitar/mp3/Piano.ff.D6.mp3',
+      './public/vender/guitar/mp3/Piano.ff.D6.mp3',
+      './public/vender/guitar/mp3/Piano.ff.E6.mp3',
+      './public/vender/guitar/mp3/Piano.ff.G6.mp3',
+      './public/vender/guitar/mp3/Piano.ff.A6.mp3',
+      './public/vender/guitar/mp3/Piano.ff.D7.mp3'
+    ];
+
+    let buffer = new Buffer(context, sounds);
+    let guitarSound = buffer.getBuffer();
+
+    let buttons = document.querySelectorAll('.notes .note');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', playGuitar.bind(button));
+        button.addEventListener('mouseleave', stopGuitar);
+    })
+
+
+    let audio = document.querySelector('audio');
+    let play = document.querySelector('.play');
+    let rewind = document.querySelector('.rewind');
+    let circle = document.querySelector('.circle');
+
+    audio.addEventListener('pause', pauseTrack);
+    audio.addEventListener('play', playTrack);
+
+    play.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            playTrack();
+        } else {
+            audio.pause();
+            pauseTrack();
+        }
+    })
+    rewind.addEventListener('click', () => {
+        audio.currentTime = 0;
+    })
+    circle.addEventListener('click', () => {
+        preset = (preset == 0) ? 15 : 0;
+        circle.classList.toggle('rock');
+    })
+    audio.addEventListener('ended', () => {
+        pauseTrack();
+    });
+
+    function playTrack() {
+        play.querySelector('.pause-icon').style.display = "block";
+        play.querySelector('.play-icon').style.display = "none";
+    }
+
+    function pauseTrack() {
+        play.querySelector('.pause-icon').style.display = "none";
+        play.querySelector('.play-icon').style.display = "block";
+    }
+</script>

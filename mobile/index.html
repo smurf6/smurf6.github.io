@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>小鱼干的音乐小屋</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/jpg" href="./public/image/head.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+
+    <link rel="stylesheet" href="./public/css/index.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="bg bg-blur"></div>
+<div id="app">
+    <nav class="bar bar-tab">
+        <a class="tab-item active" href="javascript:void(0)" data-src="index.html">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">首页</span>
+        </a>
+        <a class="tab-item"  href="javascript:void(0)" data-src="music.html">
+            <span class="icon icon-star"></span>
+            <span class="tab-label">音乐</span>
+        </a>
+        <a class="tab-item" href="javascript:void(0)"  data-src="video.html">
+            <span class="icon icon-share"></span>
+            <span class="tab-label">视频</span>
+        </a>
+        <a class="tab-item" href="javascript:void(0)" data-src="owner.html">
+            <span class="icon icon-me"></span>
+            <span class="tab-label">艺环</span>
+        </a>
+    </nav>
+    <div id="page" class="content">
+        <div class="content">
+            <iframe id="iframe-content" src="home.html" scrolling="yes"  frameborder="0" style="width: 100%; height: 100%;"></iframe>
+        </div>
+    </div>
+</div>
+<script>
+    $(".tab-item").click(function () {
+        $(".tab-item").removeClass("active");
+        $(this).addClass("active");
+        $("#iframe-content").attr("src", $(this).data("src"));
+    });
+</script>
+</body>
+</html>

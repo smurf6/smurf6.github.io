@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Web Audio API 录音示例</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        nav {
+  background-color: #221C44;
+  height: 52px;
+  font-family: 'Roboto', sans-serif;
+  color: #969DA2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 17px;
+  position: relative;
+  z-index: 2;
+}
+/* line 16, ../sass/tmp.scss */
+nav .rewind {
+  margin-left: 28px;
+  height: 16px;
+  cursor: pointer;
+}
+/* line 21, ../sass/tmp.scss */
+nav .play {
+  margin-left: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+/* line 29, ../sass/tmp.scss */
+nav .play-icon:hover path, nav .play-icon:hover rect,
+nav .rewind-icon:hover path,
+nav .rewind-icon:hover rect,
+nav .pause-icon:hover path,
+nav .pause-icon:hover rect {
+  fill: #566574;
+}
+/* line 34, ../sass/tmp.scss */
+nav .pause-icon {
+  display: none;
+}
+/* line 37, ../sass/tmp.scss */
+nav .controls {
+  display: flex;
+  align-items: center;
+}
+/* line 41, ../sass/tmp.scss */
+nav .social a {
+  font-size: 24px;
+  color: #A8B5C2;
+  margin-left: 18px;
+}
+/* line 45, ../sass/tmp.scss */
+nav .social a:hover {
+  color: #566574;
+}
+
+/* line 51, ../sass/tmp.scss */
+.loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  position: relative;
+  z-index: 1;
+}
+/* line 55, ../sass/tmp.scss */
+.loading .progress {
+  transition: width 0.3s linear;
+}
+
+/* line 62, ../sass/tmp.scss */
+.notes {
+  display: flex;
+  height: auto;
+  opacity: 1;
+  transition: opacity 1s ease;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+/* line 71, ../sass/tmp.scss */
+.notes .note {
+  height: 132px;
+}
+/* line 72, ../sass/tmp.scss */
+.notes .note > div {
+  height: 100%;
+  width: 32px;
+  border-radius: 16px;
+  background-color: #D8D8D8;
+  color: #541F5D;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 5px 0;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.16);
+}
+/* line 87, ../sass/tmp.scss */
+.notes .note:hover div {
+  background-color: #FF6545;
+  color: #fff;
+}
+/* line 92, ../sass/tmp.scss */
+.notes .note.key {
+  height: 172px;
+}
+/* line 94, ../sass/tmp.scss */
+.notes .note.key > div {
+  background-color: #ECDCCA;
+}
+/* line 97, ../sass/tmp.scss */
+.notes .note.key:hover > div {
+  background-color: #FF6545;
+  color: #fff;
+}
+/* line 102, ../sass/tmp.scss */
+.notes .note:not(:first-child) > div {
+  margin-left: 8px;
+}
+/* line 105, ../sass/tmp.scss */
+.notes .note:not(:last-child) > div {
+  margin-right: 8px;
+}
+/* line 108, ../sass/tmp.scss */
+.notes .note span {
+  font-size: 0.7em;
+}
+
+/* line 114, ../sass/tmp.scss */
+.guitar {
+  width: 96%;
+  min-width: 772px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+/* line 120, ../sass/tmp.scss */
+.guitar.visible {
+  transition: opacity 0.5s ease;
+}
+/* line 123, ../sass/tmp.scss */
+.guitar img {
+  width: 100%;
+  display: block;
+  pointer-events: none;
+}
+/* line 128, ../sass/tmp.scss */
+.guitar .circle {
+  background-image: url(image/switch.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 5vw;
+  height: 5vw;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  right: 44.5%;
+  top: 33.5%;
+  cursor: pointer;
+}
+/* line 141, ../sass/tmp.scss */
+.guitar .circle.rock {
+  background-position: 0 100%;
+}
+/* line 143, ../sass/tmp.scss */
+.guitar .circle.rock:before {
+  color: #FFF;
+}
+/* line 146, ../sass/tmp.scss */
+.guitar .circle.rock:after {
+  color: #C17CA4;
+}
+/* line 150, ../sass/tmp.scss */
+.guitar .circle:before, .guitar .circle:after {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 13px;
+  text-align: center;
+  display: block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+/* line 159, ../sass/tmp.scss */
+.guitar .circle:before {
+  content: "ROCK";
+  top: -14px;
+  color: #C17CA4;
+}
+/* line 164, ../sass/tmp.scss */
+.guitar .circle:after {
+  content: "BLUES";
+  top: 100%;
+  color: #FFF;
+  position: absolute;
+  width: 100%;
+  margin-top: 2px;
+}
+
+/* line 175, ../sass/tmp.scss */
+body {
+  background-color: #2c2d2d;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Roboto', sans-serif;
+}
+/* line 183, ../sass/tmp.scss */
+body * {
+  user-select: none;
+}
+
+/* line 188, ../sass/tmp.scss */
+html,
+body {
+  height: 100%;
+  min-width: 726px;
+}
+    </style>
+</head>
+<body>
+
+
+    <div class="notes">
+        <div class="note" data-note="0">
+            <div>
+                G<span>4</span>
+            </div>
+        </div>
+        <div class="note key" data-note="1">
+            <div>
+                A<span>4</span>
+            </div>
+        </div>
+        <div class="note" data-note="2">
+            <div>
+                C<span>5</span>
+            </div>
+        </div>
+        <div class="note" data-note="3">
+            <div>
+                D<span>5</span>
+            </div>
+        </div>
+        <div class="note" data-note="4">
+            <div>
+                E<span>5</span>
+            </div>
+        </div>
+        <div class="note" data-note="5">
+            <div>
+                G<span>5</span>
+            </div>
+        </div>
+        <div class="note key" data-note="6">
+            <div>
+                A<span>5</span>
+            </div>
+        </div>
+        <div class="note" data-note="7">
+            <div>
+                C<span>6</span>
+            </div>
+        </div>
+        <div class="note" data-note="8">
+            <div>
+                D<span>6</span>
+            </div>
+        </div>
+        <div class="note" data-note="9">
+            <div>
+                D<span>#6</span>
+            </div>
+        </div>
+        <div class="note" data-note="10">
+            <div>
+                E<span>6</span>
+            </div>
+        </div>
+        <div class="note" data-note="11">
+            <div>
+                G<span>6</span>
+            </div>
+        </div>
+        <div class="note key" data-note="12">
+            <div>
+                A<span>6</span>
+            </div>
+        </div>
+        <div class="note" data-note="13">
+            <div>
+                C<span>7</span>
+            </div>
+        </div>
+        <div class="note" data-note="14">
+            <div>
+                D<span>7</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="guitar">
+        <div class="circle"></div>
+        <img src="image/guitar.png">
+    </div>
+    <audio src="mp3/shuffle_bruce.mp3"></audio>
+</body>
+</html>
+<script>
+    class Guitar {
+
+        constructor(context, buffer) {
+            this.context = context;
+            this.buffer = buffer;
+        }
+
+        setup() {
+            this.gainNode = this.context.createGain();
+            this.source = this.context.createBufferSource();
+            this.source.buffer = this.buffer;
+            this.source.connect(this.gainNode);
+            this.gainNode.connect(this.context.destination);
+
+            this.gainNode.gain.value = 0.8;
+        }
+
+        play() {
+            this.setup();
+            this.source.start(this.context.currentTime);
+        }
+
+        stop() {
+            this.gainNode.gain.exponentialRampToValueAtTime(0.001, this.context.currentTime + 0.5);
+            this.source.stop(this.context.currentTime + 0.5);
+        }
+
+    }
+
+    class Buffer {
+
+        constructor(context, urls) {
+            this.context = context;
+            this.urls = urls;
+            this.buffer = [];
+        }
+
+        loadSound(url, index) {
+            let request = new XMLHttpRequest();
+            request.open('get', url, true);
+            request.responseType = 'arraybuffer';
+            let thisBuffer = this;
+            request.onload = function () {
+                // Safari doesn't support promise based syntax
+                thisBuffer.context
+                  .decodeAudioData(request.response, function (buffer) {
+                      thisBuffer.buffer[index] = buffer;
+                      updateProgress(thisBuffer.urls.length);
+                      if (index == thisBuffer.urls.length - 1) {
+                          thisBuffer.loaded();
+                      }
+                  });
+            };
+            request.send();
+        };
+
+        getBuffer() {
+            this.urls.forEach((url, index) => {
+                this.loadSound(url, index);
+            })
+        }
+
+        loaded() {
+            document.querySelector('.loading').style.opacity = 0;
+            document.querySelector('.loading').style.height = 0;
+            document.querySelector('.notes').style.height = "auto";
+            document.querySelector('.notes').style.top = "150px";
+            document.querySelector('.notes').style.opacity = 1;
+            loaded = true;
+        }
+
+        getSound(index) {
+            return this.buffer[index];
+        }
+
+    }
+
+    let progressBar = document.querySelector('.progress');
+    let iteration = 0;
+
+    function updateProgress(total) {
+        progressBar.style.width = ++iteration / total * 100 + '%';
+    }
+
+    let guitar = null;
+    let preset = 0;
+    let loaded = false;
+
+    function playGuitar() {
+        let index = parseInt(this.dataset.note) + preset;
+        guitar = new Guitar(context, buffer.getSound(index));
+        guitar.play();
+    }
+
+    function stopGuitar() {
+        guitar.stop();
+    }
+
+    let context = new (window.AudioContext || window.webkitAudioContext)();
+
+    //let sounds = [
+    //  '/uploads/161101/piano/Piano.ff.G4.mp3',
+    //  '/uploads/161101/piano/Piano.ff.A4.mp3',
+    //  '/uploads/161101/piano/Piano.ff.C5.mp3',
+    //  '/uploads/161101/piano/Piano.ff.D5.mp3',
+    //  '/uploads/161101/piano/Piano.ff.E5.mp3'
+    //];
+    let sounds = [
+      'mp3/Piano.ff.G4.mp3',
+      'mp3/Piano.ff.A4.mp3',
+      'mp3/Piano.ff.C5.mp3',
+      'mp3/Piano.ff.D5.mp3',
+      'mp3/Piano.ff.E5.mp3',
+
+      'mp3/Piano.ff.G5.mp3',
+      'mp3/Piano.ff.A5.mp3',
+      'mp3/Piano.ff.C6.mp3',
+      'mp3/Piano.ff.D6.mp3',
+      'mp3/Piano.ff.D6.mp3',
+      'mp3/Piano.ff.E6.mp3',
+      'mp3/Piano.ff.G6.mp3',
+      'mp3/Piano.ff.A6.mp3',
+      'mp3/Piano.ff.D7.mp3'
+    ];
+
+    let buffer = new Buffer(context, sounds);
+    let guitarSound = buffer.getBuffer();
+
+    let buttons = document.querySelectorAll('.notes .note');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', playGuitar.bind(button));
+        button.addEventListener('mouseleave', stopGuitar);
+    })
+
+
+    let audio = document.querySelector('audio');
+    let play = document.querySelector('.play');
+    let rewind = document.querySelector('.rewind');
+    let circle = document.querySelector('.circle');
+
+    audio.addEventListener('pause', pauseTrack);
+    audio.addEventListener('play', playTrack);
+
+    play.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            playTrack();
+        } else {
+            audio.pause();
+            pauseTrack();
+        }
+    })
+    rewind.addEventListener('click', () => {
+        audio.currentTime = 0;
+    })
+    circle.addEventListener('click', () => {
+        preset = (preset == 0) ? 15 : 0;
+        circle.classList.toggle('rock');
+    })
+    audio.addEventListener('ended', () => {
+        pauseTrack();
+    });
+
+    function playTrack() {
+        play.querySelector('.pause-icon').style.display = "block";
+        play.querySelector('.play-icon').style.display = "none";
+    }
+
+    function pauseTrack() {
+        play.querySelector('.pause-icon').style.display = "none";
+        play.querySelector('.play-icon').style.display = "block";
+    }
+</script>

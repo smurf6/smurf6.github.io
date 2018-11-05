@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>小鱼干音乐小屋</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link href="public/css/video-js.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="./public/css/index.css">
+</head>
+<body>
+<div class="page-group">
+    <div class="page">
+        <div class="content">
+            <div class="card">
+                <div class="card-header">有趣的音阶<span class="em em-drooling_face"></span></div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <video id="video-yh1" poster="./public/video/yh1.jpeg" class="video-js" controls preload="auto" style="width: 100%;height: 200px">
+                            <source src="./public/video/yh1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">小伙伴一起来 <span class="em em-grinning_face_with_one_large_and_one_small_eye"></span></div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <video id="video-yh2" poster="./public/video/yh2.jpeg" class="video-js" controls preload="auto" style="width: 100%;height: 200px">
+                            <source src="./public/video/yh2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">不仅仅吉他还有钢琴 <span class="em em-kissing_heart"></span></div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <video id="video-yh3" poster="./public/video/yh3.jpeg" class="video-js" controls preload="auto" style="width: 100%;height: 200px">
+                            <source src="./public/video/yh3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='./public/js/index.js' charset='utf-8'></script>
+<script type='text/javascript' src='./public/js/music.js' charset='utf-8'></script>
+<script src="public/js/video.min.js"></script>
+<script type="text/javascript">
+    window.video_init = true;
+    videojs("video-yh1").ready(function(){
+        var myPlayer = this;
+    });
+    videojs("video-yh2").ready(function(){
+        var myPlayer = this;
+    });
+    videojs("video-yh3").ready(function(){
+        var myPlayer = this;
+    });
+
+</script>
+</body>
+</html>

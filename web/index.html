@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小鱼干音乐小屋</title>
+    <link rel="icon" type="image/jpg" href="./public/image/head.jpg">
+    <link rel="stylesheet" href="./public/vender/bootstrap-3.3.7/css/bootstrap.css"/>
+    <link rel="stylesheet" href="./public/vender/fullpage/jquery.fullPage.min.css">
+    <script type="text/javascript" src="./public/vender/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./public/vender/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <script src="./public/vender/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./public/js/current-device.js"></script>
+    <script src="./public/vender/fullpage/jquery.fullPage.min.js"></script>
+    <script>
+        if(device.mobile()){
+            window.location = "../mobile/index.html";
+        }
+        $(function() {
+            $('#fullpage').fullpage({
+                navigation: true
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="./public/css/index.css"/>
+    <!-- https://afeld.github.io/emoji-css/ -->
+    <link rel="stylesheet" href="./public/css/emoji.css"/>
+</head>
+
+<style>
+    * { margin: 0; padding: 0;}
+    ul { list-style-type: none;}
+    .top { position: fixed; left: 0; right: 0; top: 0; z-index: 999; height: 50px; background-color: rgba(0, 0, 0, 0.6);}
+    .menu { width: 1000px; margin: 0 auto; overflow: hidden;}
+    .section {
+        text-align: center;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+        overflow: hidden;
+    }
+</style>
+
+<body class="body-backgroud">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="pull-left" style="overflow: auto;border-radius:30px;margin-left: 5px;margin-right: 10px"><img src="./public/image/head.jpg" height="50"></div>
+            <div class="pull-left"><a class="navbar-brand default-color" href="#">小鱼干吉他</a></div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+            <p class="navbar-text navbar-right"><a href="./piano.html" class="navbar-link">钢琴专题</a></p>
+            <p class="navbar-text navbar-right"><a href="./guitar.html" class="navbar-link">吉他专题</a></p>
+            <p class="navbar-text navbar-right">
+            <div class="btn-group navbar-right" style="margin-top:15px;" role="group">
+                <a href="#" class="dropdown-toggle" style="color: #6f6f6f;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                    首页介绍 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" style="background-color: rgba(217, 251, 251, 0.5);width:50px;">
+                    <li><a href="./index.html">首页介绍</a></li>
+                    <li><a href="./index.html#teacher-team-target">视频欣赏</a></li>
+                    <li><a href="./index.html#q-and-a-target">认识吉他</a></li>
+                    <li><a href="./index.html#student-team-target">课程选择</a></li>
+                    <li><a href="./index.html#about-our-target">联系我们</a></li>
+                </ul>
+            </div>
+            </p>
+        </div>
+    </div>
+</nav>
+<div id="fullpage">
+    <div id="introduce-target" class="page-target"></div>
+    <div class="section row">
+        <div class="dark-backgroud-color" style="height: 600px;margin-top: -150px">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="./public/image/bar1.jpeg" alt="...">
+                        <div class="carousel-caption">
+                            太阳暖暖的 照着好舒服
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="./public/image/bar3.jpeg" alt="...">
+                        <div class="carousel-caption">
+                            不远千里 只为此刻
+                        </div>
+                    </div>
+
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- .col-xs-12 -->
+        <div class="col-xs-12 dark-backgroud-color" style="padding-top: 20px;">
+            <div class="col-xs-6 col-xs-3">
+                <a href="javascript:void(0)" class="thumbnail introduce-thumbnail">
+                    <img src="./public/image/introduce1.jpg" class="img-circle"/>
+                    <div class="introduce-content">
+                        <div class="introduce-title">吉他</div>
+                        <div class="introduce-describe">guitar </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-xs-3">
+                <a href="javascript:void(0)" class="thumbnail introduce-thumbnail">
+                    <img src="./public/image/introduce2.jpg" class="img-circle"/>
+                    <div class="introduce-content">
+                        <div class="introduce-title">架子鼓</div>
+                        <div class="introduce-describe">drum rack</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-xs-3">
+                <a href="javascript:void(0)" class="thumbnail introduce-thumbnail">
+                    <img src="./public/image/introduce3.jpg" class="img-circle"/>
+                    <div class="introduce-content">
+                        <div class="introduce-title">古筝</div>
+                        <div class="introduce-describe">zither</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-xs-3">
+                <a href="javascript:void(0)" class="thumbnail introduce-thumbnail">
+                    <img src="./public/image/introduce4.jpg" class="img-circle"/>
+                    <div class="introduce-content">
+                        <div class="introduce-title">钢琴</div>
+                        <div class="introduce-describe">piano </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div><!-- .row -->
+    <div class="section row">
+        <div class="page-font" >音乐的力量让孩子更快乐的成长</div>
+    </div>
+    <div class="section dark-backgroud-color">
+        <div class="page-title">视频欣赏</div>
+        <div class="page-title-introduce">太阳暖暖的 照着好舒服 <i class="em em-sun_with_face"></i> <i class="em em-sun_with_face"></i></div>
+        <div class="col-xs-3">
+            <div class="thumbnail">
+                <video class="col-xs-12"  controls="controls">
+                    <source src="./public/video/lyh1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">
+                    <p><i class="em em-anguished"></i> 弹的很辣鸡，一录视频就很紧张 </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="thumbnail">
+                <video class="col-xs-12"  controls="controls">
+                    <source src="./public/video/lyh2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">
+                    <p><i class="em em-drooling_face"></i> 太阳暖暖的 照着好舒服</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="thumbnail">
+                <video class="col-xs-12"  controls="controls">
+                    <source src="./public/video/lyh3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">
+                    <p><i class="em em-face_with_one_eyebrow_raised"></i> 奕晨宝贝说 这是完美到合奏</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="thumbnail">
+                <video class="col-xs-12"  controls="controls">
+                    <source src="./public/video/lyh4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">
+                    <p><i class="em em-dizzy_face"></i> 背完了TEssion 这首歌就忘记了怎么弹</p>
+                </div>
+            </div>
+        </div>
+    </div><!-- .row -->
+    <div class="section row dark-backgroud-color page-panel">
+        <div class="page-title">认识吉他</div>
+        <div class="page-title-introduce">吉他象征着一个人正在开始或已经结束的青春</div>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            什么是吉他？
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        吉他——在我的心里像是一个符号，它象征着一个人正在开始或已经结束的青春。
+                        <br/>
+                        吉他喧嚣的是对青春无所顾忌的挥洒，当它被冷落了，从此挂在在心底的墙角时，吉他沉寂的是对青春最无奈的回忆。
+                        <br/>
+                        在大学的宿舍里，我们曾经用吉他弹唱着心中的歌：
+                        <br/>
+                        唱得最多的是《同桌的你》
+                        <br/>
+                        唱得最深情的是《流浪歌手的情人》
+                        <br/>
+                        唱得最有感觉的是《睡在我上铺的兄弟》
+                        <br/>
+                        唱得最忘我的是那首名叫《青春》的歌
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            吉他到底难不难学？
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        抱起了吉他，也许你要问了，弹吉他到底难不难？（事实上这也是大多数没接触过吉他的人常问的一个问题），<br/>
+                        是的，吉他演奏是条永无止境的道路，<b>你想要达到的高度将会决定你完成的难度</b>，<br/>
+                        但是，弹吉他本身其实很简单，无非就是左右手的配合，左手按弦，右手拨弦。
+                        一个良好的心态是：不要惧怕，带着憧憬与自信。<br/>
+                        心态固然重要，不过作为零基础新手，当我们抱起吉他，仍然会手足无措，不知道弹什么对不对？<br/>
+                        这个时候就需要借助吉他谱的帮助了，我们接触到的吉他谱通常以六线谱为主（六线谱中的六根线对应吉他上的六根弦，是一种很直观的吉他谱），
+                        学会六线谱对于我们之后的自学歌曲、练习演奏都非常重要，甚至可以说，<br/>
+                        学会了六线谱，你就已经是半个吉他手了<br/>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            学吉他为什么要找一个专业的老师？
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        学习吉他其实和学习语言，有很多相似之处。
+                        <br/>学吉他，手指的技巧在一开始被很多人认为是最重要的技巧，因此首先在手指上下功夫。
+                        <br/>其实这不能说是完全正确的。很多人就是因为太看中技巧，而忽略了其他的重要环节。下面我做一个比喻：
+                        <br/>我觉得，如同一个小孩子学说话，首先是听，看，然后慢慢模仿，同时结合着一些实际发生的事情，产生了语境，然后开始说话，结巴的，连发音都不标准。
+                        <br/>但是这没有关系，继续说，继续学，继续改正，慢慢地就把一句话连接起来了，
+                        <br/>然后开始连接成完整的段落，随着思维的提高，可以开始表达更多的东西。
+                        <br/>其实学吉他也是如此，学习吉他，并不是看着书就能学好学会的，其实更多的要运用的是听力，节奏感，模仿能力等等。
+                        <br/>榜样的力量是无穷的，很多外国知名的吉他手，早年都有自己心中的吉他英雄，并且进行模仿
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFour">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                            学吉他有什么好处呢？
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="panel-body">
+                        <br/> <i class="em em-drooling_face"></i> 我也不懂啊你自己看吧
+                        <br/>
+                        <br/> <i class="em em-face_with_monocle"></i> 无聊的时候可以打发时间吧
+                        <br/>
+                        <br/> <i class="em em-face_with_one_eyebrow_raised"></i> 多元化的技能可以提高人的情商
+                        <br/>
+                        <br/> <i class="em em-face_with_thermometer"></i> 音乐可以调节心情，自己弹奏的音乐会让自己更有兴趣听
+                        <br/>
+                        <br/> <i class="em em-grinning_face_with_star_eyes"></i> 可以认识喜欢音乐的妹子啊
+                        <br/>
+                        <br/><i class="em em-face_with_thermometer"></i> 弹着吉他吹着海风看起来就是屌屌的帅帅的酷酷的
+                        <br/>
+                        <br/><i class="em em em-face_with_rolling_eyes"></i> 烦躁不安时给我们提供了另一种选择，让我们不会那么固执
+                        <br/>
+                        <br/><i class="em  em-kissing_heart"></i> 有趣的灵魂需要艺术的熏陶
+                        <br/>
+                        <br/><i class="em  em-zipper_mouth_face"></i> 专业学到百分之七十 吉他学个百分之三十 那么你就从大部分人中走出来
+                        <br/>
+                        <br/><i class="em  em-confused"></i> 吉他是内涵和气质的寄托工具
+                        <br/>
+                        <br/><i class="em  em-dizzy_face"></i> 吉他可以很直接的将艺术表现出来
+                        <br/>
+                        <br/><i class="em  em-guitar"></i> 音乐是一种美妙的语言 更加容易产生共鸣
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section row dark-backgroud-color page-panel">
+        <div class="page-title">课程选择</div>
+        <div class="page-title-introduce">因材施教 为您量身定制专业的辅导课程</div>
+        <div class="col-xs-12" id="student-introduce" style="padding-top: 50px;">
+            <div class="col-xs-6 col-xs-4">
+                <a href="javascript:void(0)" class="thumbnail student-introduce-thumbnail">
+                    <img src="./public/image/student1.jpg" class="student-introduce-img"/>
+                    <div class="student-introduce-content">
+                        <div class="student-introduce-title">吉他说成小提琴</div>
+                        <div class="student-introduce-describe">这类同学根本不懂音乐 学不会的</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-xs-4">
+                <a href="javascript:void(0)" class="thumbnail student-introduce-thumbnail">
+                    <img src="./public/image/student2.jpg" class="student-introduce-img"/>
+                    <div class="student-introduce-content">
+                        <div class="student-introduce-title">唱歌不好听</div>
+                        <div class="student-introduce-describe">音乐最有趣的部分就是自演自唱 唱歌不好听学了也没啥用 </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-xs-4">
+                <a href="javascript:void(0)" class="thumbnail student-introduce-thumbnail">
+                    <img src="./public/image/student3.jpg" class="student-introduce-img"/>
+                    <div class="student-introduce-content">
+                        <div class="student-introduce-title">我叫蓝艺环</div>
+                        <div class="student-introduce-describe">弹的很辣鸡，一录视频就很紧张 </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="section row page-panel">
+        <div style="height: 150px; width:100%;position:absolute;bottom: 0px;text-align:left;background-color: rgb(44, 45, 45,0.7);color:#ffffff">
+            <h4 class="default-color" style="margin-left: 10px">联系方式</h4>
+            <div class="pull-left">
+                <img src="./public/image/wechat.jpeg" style="width: 90px;height: 90px;margin-left: 10px;margin-right: 20px"/>
+            </div>
+            <div class="pull-left">
+                <dl class="dl-horizontal" style="margin-left:-120px">
+                    <dt>地址</dt>
+                    <dd>厦门市海沧区****</dd>
+                    <dt>手机</dt>
+                    <dd>100861314520</dd>
+                    <dt>微信</dt>
+                    <dd>1314520 <span> (扫描二维码联系蓝老师)</span></dd>
+                    <dt>邮箱</dt>
+                    <dd>1314520@qq.com</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<video id="background-video" autoplay="autoplay" muted="muted" volume="0" poster="./public/image/default-background.jpg" loop="loop" >
+    <source type="video/webm" src="./public/video/default.webm">
+    <source type="video/mp4" src="./public/video/default.mp4">
+</video>
+
+</body>
+</html>
