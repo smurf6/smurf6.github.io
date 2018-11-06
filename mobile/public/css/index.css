@@ -174,16 +174,4 @@
     -ms-filter: blur(10px);
     filter: blur(10px);
 }
-.tab-item.active {
-    color:  #ed8e07 !important;
-}
-.tab-item.inactive {
-}
 
-.control-box,.music-list-title{
-    color:#827979;
-}
-.music-list-body table{
-    color: #9a7f7f;
-    font-size:14px;
-}

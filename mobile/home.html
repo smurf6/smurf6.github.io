@@ -3,78 +3,68 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>小鱼干的音乐小屋</title>
+    <title>小鱼干音乐小屋</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <link rel="icon" type="image/jpg" href="./public/image/head.jpg">
+    <link rel="shortcut icon" href="/favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js"></script>
 
     <link rel="stylesheet" href="./public/css/index.css">
-    <style>
-
-    </style>
 </head>
+
 <body>
-<div class="bg bg-blur"></div>
-<div id="app">
+<div id="app" class="page-group">
+<div class="page">
     <nav class="bar bar-tab">
-        <a class="tab-item active" href="home.html" data-src="home.html">
+        <a class="tab-item active" href="home.html">
             <span class="icon icon-home"></span>
             <span class="tab-label">首页</span>
         </a>
-        <a class="tab-item"  href="music.html" data-src="music.html">
+        <a class="tab-item" href="music.html">
             <span class="icon icon-star"></span>
             <span class="tab-label">音乐</span>
         </a>
-        <a class="tab-item" href="video.html"  data-src="video.html">
+        <a class="tab-item" href="video.html">
             <span class="icon icon-share"></span>
             <span class="tab-label">视频</span>
         </a>
-        <a class="tab-item" href="owner.html" data-src="owner.html">
+        <a class="tab-item" href="owner.html">
             <span class="icon icon-me"></span>
             <span class="tab-label">艺环</span>
         </a>
     </nav>
-    <div id="page" class="content">
-        <div class="content" style="height: 700px">
-            <!-- Slider -->
-            <div class="swiper-container" data-space-between="10">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img class="bar-img" src="./public/image/yh3.jpeg" alt=""></div>
-                    <div class="swiper-slide"><img class="bar-img" src="./public/image/yh2.jpeg" alt=""></div>
-                    <div class="swiper-slide"><img class="bar-img" src="./public/image/yh1.jpeg" alt=""></div>
-                </div>
-                <div class="swiper-pagination" style="position: relative;top: -30px;"></div>
+    <div class="content">
+        <!-- Slider -->
+        <div class="swiper-container" data-space-between="10">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="bar-img" src="./public/image/yh3.jpeg" alt=""></div>
+                <div class="swiper-slide"><img class="bar-img" src="./public/image/yh2.jpeg" alt=""></div>
+                <div class="swiper-slide"><img class="bar-img" src="./public/image/yh1.jpeg" alt=""></div>
             </div>
-            <div class="row" style="text-align:center;color:#75b4ca">
-                <h3>你待会跟你妈说</h3>
-                <h3>晚上不回家要去同学家学吉他</h3>
-                <h3>和林周治一起过中秋</h3>
-                <br>
-                <img style="width:60%" src="./public/image/gaoxiao.jpeg"  alt="">
-                <br>
-                <br>
-                <br>
-            </div>
-
+            <div class="swiper-pagination" style="position: relative;top: -30px;"></div>
         </div>
+        <div class="row">
+            <div class="col-33">33%</div>
+            <div class="col-33">33%</div>
+            <div class="col-33">33%</div>
+        </div>
+
     </div>
 </div>
+</div>
 
-<script>
-    $(".swiper-container").swiper({
-        autoplay: 2000,
-        el: '.swiper-pagination',
-        dynamicBullets: true
-    });
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
 
-</script>
+<script type='text/javascript' src='./public/js/index.js' charset='utf-8'></script>
+
 </body>
 </html>
