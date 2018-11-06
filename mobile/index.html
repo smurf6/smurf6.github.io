@@ -11,21 +11,26 @@
 
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./public/vender/font-awesome/css/font-awesome.css" >
     <link rel="stylesheet" href="./public/css/emoji.css">
     <link href="./public/css/video-js.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./public/css/index.css">
 
-    <script src="./public/vue/vue.min.js"></script>
-    <script src="./public/vue/vue-router.min.js"></script>
+    <script type="text/javascript" src="./public/vender/jquery/jquery-1.10.2.js"></script>
 
     <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <!--common script for all pages-->
+    <script src="./public/vender/sparrow/i18n/lang.js"></script>
+    <script src="./public/vender/sparrow/layer/layer.js"></script>
+    <script src="./public/vender/sparrow/ajax.js"></script>
+    <script src="./public/vender/sparrow/json.js"></script>
+    <script src="./public/vender/sparrow/pack.js"></script>
+    <script src="./public/vender/sparrow/util.js"></script>
+    <script src="./public/vender/sparrow/smarty.js"></script>
 
     <script src="public/js/video.min.js"></script>
-
-    <script src="./public/js/jstpl.js"></script>
     <script src="./public/js/music.js"></script>
     <style>
         .tab-item.active {
@@ -71,39 +76,42 @@
 </div>
 
 <script>
-    $("#page").html(tpl("home", {}));
-    $(".swiper-container").swiper({
-        autoplay: 2000,
-        el: '.swiper-pagination',
-        dynamicBullets: true
+    smarty.html("home",{}, "page", function(){
+
     });
+
 
     $(".tab-item").on("click",function() {
         $(".tab-item").removeClass("active");
         $(this).addClass("active");
         var target = $(this).data("target");
-        $("#page").html(tpl(target, {}));
         if( target == "home" ){
-            $(".swiper-container").swiper({
-                autoplay: 2000,
-                el: '.swiper-pagination',
-                dynamicBullets: true
+            smarty.html("home",{}, "page", function(){
+
             });
         }else if( target == "music" ){
-            music_init();
-        }else if( target == "video"){
-            window.video_init = true;
-            videojs("video-yh1").ready(function(){
-                var myPlayer = this;
+            smarty.html("music",{}, "page", function(){
+                music_init();
             });
-            videojs("video-yh2").ready(function(){
-                var myPlayer = this;
-            });
-            videojs("video-yh3").ready(function(){
-                var myPlayer = this;
-            });
-        }else if( target == "owner" ){
 
+        }else if( target == "video"){
+            smarty.html("video",{}, "page", function(){
+                window.video_init = true;
+                videojs("video-yh1").ready(function(){
+                    var myPlayer = this;
+                });
+                videojs("video-yh2").ready(function(){
+                    var myPlayer = this;
+                });
+                videojs("video-yh3").ready(function(){
+                    var myPlayer = this;
+                });
+            });
+
+        }else if( target == "owner" ){
+            smarty.html("owner",{}, "page", function(){
+
+            });
         }
 
     });
