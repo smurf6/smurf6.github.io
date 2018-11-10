@@ -1,40 +1,68 @@
-<div class="content">
-            <!--audio标签-->
-            <audio src="./public/music/meet.mp3"></audio>
-            <!--歌曲信息-->
-            <div class="song-info-box">
-                <div class="song-info-txt"><span class="song-name">蓝</span>-<span class="song-author">艺环</span></div>
-                <div class="poster-box"><img src="./public/music/yh1.jpeg" class="music-poster"></div>
+<div class="music-box">
+    <div class="bg_white mb_20 pb_20 pad30">
+        <div class="box_radio">
+            <div class="meun_btn"><span class="glyphicon glyphicon-list"></span></div>
+            <div class="book_title">
+                <div class="audio_title"> </div>
             </div>
-            <!--时间进度条-->
-            <div class="content-box">
-                <div class="left-box played-progress">00：00</div>
-                <div class="center-box"> <div class="slider-bar">
-                    <div class="slider-progress">
-                        <div class="slider-dot-control"></div>
-                    </div>
-                </div></div>
-                <div class="right-box all-progress">00：00</div>
-            </div>
-            <!--控制按钮-->
-            <div class="control-box">
-                <span class="prev_bt fa fa-step-backward iconfont" title="上一首"></span>
-                <span class="play_bt fa fa-play-circle" title="播放/暂停"></span>
-                <span class="next_bt fa fa-step-forward iconfont" title="下一首"></span>
-            </div>
-            <!--歌曲列表-->
-            <div class="music-list-box">
-                <div class="music-list-title">歌曲列表</div>
-                <div class="music-list-body">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>歌名</th><th>歌手</th><th>时长</th>
-                        </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
+            <div class="audio_box">
+                <!--音乐控制面板-->
+                <div class="audio_btn">
+                    <!--旋转碟片-->
+                    <div class="cover" id="play"></div>
                 </div>
+                <div class="music-nav">
+                    <!--当前时间-->
+                    <div class="time" id="time_cur"> </div>
+                    <!--进度条-->
+                    <div class="audio_progress">
+                        <span class="audio_line"></span>
+                        <span class="audio_blue"></span>
+                        <span class="audio_dot"></span>
+                        <input type="range" min="0" max="0" step="0.4" value="0" id="scale" >
+                    </div>
+                    <!--歌曲时长-->
+                    <div class="time" id="time_long"></div>
+                </div>
+                <div style="width: 100%;height: 50px">
+                    <div style="width: 228px;margin: 0 auto;padding-top:10px;height: 50px;color: #0fceb9;">
+                        <div class="btn_prev">
+                            <span>上一首</span>
+                        </div>
+                        <div class="btn_fr">
+                            <span class="glyphicon glyphicon-backward"></span>
+                        </div>
+                        <!--暂停/播放按钮-->
+                        <div class="btn_play btn_pause">
+                            <span class="glyphicon glyphicon-play"></span>
+                        </div>
+                        <div class="btn_ff" style="padding-left: 8px;">
+                            <span class="glyphicon glyphicon-forward"></span>
+                        </div>
+                        <div class="btn_next">
+                            <span>下一首</span>
+                        </div>
+                    </div>
+                </div>
+                <audio id="music" src="" >
+                    Your browser does not support HTML5 audio.
+                </audio>
             </div>
-
         </div>
+    </div>
+
+    <div class="bg_white mb_20 pb_20 pad30">
+
+        <div class="des_info lyric_wrap" >
+            <ul id="lyric_list" style="top: 0px;padding:0px;position: relative;">
+
+            </ul>
+        </div>
+
+    </div>
+
+    <!--歌曲列表-->
+    <ul class="song_list">
+    </ul>
+
+</div>

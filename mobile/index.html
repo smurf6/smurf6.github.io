@@ -11,10 +11,10 @@
 
     <link rel="stylesheet" href="./public/vender/bootstrap-3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
     <link rel="stylesheet" href="./public/vender/font-awesome/css/font-awesome.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.css">
+
     <link rel="stylesheet" href="./public/css/emoji.css">
-    <link href="./public/css/video-js.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./public/css/index.css">
 
     <script type="text/javascript" src="./public/vender/jquery/jquery-1.10.2.js"></script>
@@ -22,7 +22,7 @@
 
     <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.js"></script>
     <!--common script for all pages-->
     <script src="./public/vender/sparrow/i18n/lang.js"></script>
     <script src="./public/vender/sparrow/layer/layer.js"></script>
@@ -33,6 +33,16 @@
     <script src="./public/vender/sparrow/smarty.js"></script>
 
     <script src="public/js/video.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="./public/vender/audio/css/mobile.css">
+    <!--音频播放器-->
+    <link rel="stylesheet" href="./public/vender/audio/css/audio_player.css">
+    <!--旋转动画插件-->
+    <script src="./public/vender/audio/js/jquery.rotate.min.js"></script>
+    <!--音频播放器-->
+    <script src="./public/vender/audio/js/audio_player.js"></script>
     <script src="./public/js/music.js"></script>
     <style>
         .tab-item.active {
@@ -40,36 +50,169 @@
         }
         .tab-item.inactive {
         }
-
+        .card-header.video{
+            padding-top: 1px;
+        }
         .control-box,.music-list-title{
             color:#827979;
+        }
+        .music-box{
+            height:100%;
+            overflow: hidden;
         }
         .music-list-body table{
             color: #9a7f7f;
             font-size:14px;
         }
 
+        .bar-tab .tab-item {
+            color: #ffffff;
+        }
+        .swiper-container {
+            height: 220px;
+        }
+        .swiper-wrapper>.swiper-slide>.bar-img{
+            width: 100%;
+            height:220px;
+        }
+        .recommend-swiper-container{
+            overflow: hidden;
+            height:110px;
+        }
+        .recommend-swiper-container>.swiper-wrapper>.swiper-slide>.recommend-img>.bar-img{
+            height:100px;
+        }
+        .recommend-img{
+            width:100%;
+            height:100%;
+            overflow: hidden;
+            border:1px solid #80808000;
+            border-radius: 5px;
+        }
+        .recommend-swiper-container>.swiper-wrapper>.swiper-slide{
+            height:100px;
+            overflow: hidden;
+            padding: 3px;
+        }
+        .hot-guita {
+            height:auto;
+            background: rgba(243, 235, 235, 0.6);
+        }
+        .hot-guita > .card{
+            margin: 0px;
+            background: rgba(243, 235, 235, 0.0);
+            color: #e49e35;
+            box-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.06);
+        }
+        .guita-box{
+
+        }
+        .guita-title{
+            color: #b39e69;
+            width: 100%;
+            height: 30px;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #cc8308;
+        }
+        .tour-top-content{
+            height:280px;
+            width: 100%;
+            overflow: hidden;
+            background-image: url("./public/image/tour-cover.jpeg");
+            background-size:contain;
+        }
+        .tour-top-info{
+            margin-top: -60px;
+        }
+        .tour-top-info > .head{
+            position: absolute;
+            right: 10px;
+        }
+        .tour-top-info > .name{
+            color: #fff;
+            font-size: 18px;
+            position: absolute;
+            right: 110px;
+            margin-top: 25px;
+        }
+        .tour-box{
+            height: 100%;
+            padding: 9px;
+        }
+        .tour-box.card{
+            color:#52af82;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .tour-box.card > .card-content{
+            height: 90px;
+        }
+        .tour-date{
+            width: 20%;
+            text-align: center;
+            font-size: 18px;
+            color: #989191;
+            float: left;
+        }
+        .tour-right-content{
+            width: 80%;
+            float:left;
+            padding-left: 75px;
+        }
+        .tour-image{
+            overflow: hidden;
+            width: 75px;
+            height: 75px;
+            margin-left: -75px;
+            float:left;
+        }
+        .tour-image > img{
+            width: 100px;
+        }
+        .tour-item-content{
+            float: left;
+            margin-left: 5px;
+            width: 100%;
+        }
+        .tour-text{
+            margin-top: 3px;
+            height: 40px;
+            overflow: hidden;
+        }
+        .tour-address{
+            margin-top: -2px;
+            color:#9ab1a8;
+        }
     </style>
 </head>
 <body>
 <div class="bg bg-blur"></div>
 <div id="app">
-    <nav class="bar bar-tab">
-        <div data-target="home" class="tab-item active">
-            <span class="icon icon-home"></span>
+    <nav class="bar bar-tab" style="background-color:rgba(46, 58, 56, 0.4);">
+        <div id="home" data-target="home" class="tab-item active">
+            <span class="icon">
+                <span class="fa fa-home"></span>
+            </span>
             <span class="tab-label">首页</span>
         </div>
         <div data-target="music" class="tab-item">
-            <span class="icon icon-star"></span>
+            <span class="icon">
+                <span class="fa fa-music"></span>
+            </span>
             <span class="tab-label">音乐</span>
         </div>
         <div data-target="video" class="tab-item">
-            <span class="icon icon-share"></span>
+            <span class="icon">
+                <span class="fa fa-youtube-play"></span>
+            </span>
             <span class="tab-label">视频</span>
         </div>
         <div data-target="owner" class="tab-item">
-            <span class="icon icon-me"></span>
-            <span class="tab-label">艺环</span>
+            <span class="icon">
+                <span class="fa fa-street-view"></span>
+            </span>
+            <span class="tab-label">旅游</span>
         </div>
     </nav>
     <div id="page" class="content">
@@ -78,36 +221,40 @@
 </div>
 
 <script>
-    smarty.html("home",{}, "page", function(){
+    initHome();
 
-    });
-
+    function initHome() {
+        smarty.html("home",{}, "page", function(){
+            new Swiper ('.swiper-container', {
+                loop: true, // 循环模式选项
+                // 如果需要分页器
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+                autoplay:{
+                    autoplay:true
+                }
+            });
+            new Swiper('.recommend-swiper-container',{
+                slidesPerView: 3,//一行显示3个
+            })
+        });
+    }
 
     $(".tab-item").on("click",function() {
         $(".tab-item").removeClass("active");
         $(this).addClass("active");
         var target = $(this).data("target");
         if( target == "home" ){
-            smarty.html("home",{}, "page", function(){
-
-            });
+            initHome();
         }else if( target == "music" ){
             smarty.html("music",{}, "page", function(){
-                music_init();
+                initMusic();
             });
 
         }else if( target == "video"){
             smarty.html("video",{}, "page", function(){
-                window.video_init = true;
-                videojs("video-yh1").ready(function(){
-                    var myPlayer = this;
-                });
-                videojs("video-yh2").ready(function(){
-                    var myPlayer = this;
-                });
-                videojs("video-yh3").ready(function(){
-                    var myPlayer = this;
-                });
+
             });
 
         }else if( target == "owner" ){
