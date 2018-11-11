@@ -32,9 +32,6 @@
     <script src="./public/vender/sparrow/util.js"></script>
     <script src="./public/vender/sparrow/smarty.js"></script>
 
-    <script src="public/js/video.min.js"></script>
-
-
 
     <link rel="stylesheet" href="./public/vender/audio/css/mobile.css">
     <!--音频播放器-->
@@ -44,6 +41,7 @@
     <!--音频播放器-->
     <script src="./public/vender/audio/js/audio_player.js"></script>
     <script src="./public/js/music.js"></script>
+    <script src="./public/js/video.js"></script>
     <style>
         .tab-item.active {
             color:  #ed8e07 !important;
@@ -244,7 +242,8 @@
             });
             new Swiper('.recommend-swiper-container',{
                 slidesPerView: 3,//一行显示3个
-            })
+            });
+            initScrollVideo();
         });
     }
 
