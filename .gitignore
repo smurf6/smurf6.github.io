@@ -1,2 +1,4 @@
 mobile/public/vender/sparrow/smarty.js
+.DS_Store
+public/.DS_Store
 .idea/*
