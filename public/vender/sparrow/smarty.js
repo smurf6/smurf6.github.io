@@ -1,4 +1,4 @@
-window.HOST_URL = "https://smurf6.github.io/";
+window.HOST_URL = "http://smurf7.com/";
 //window.HOST_URL = "http://" + window.location.host + "/smurf6.github.io/";
 window.STATIC_URL = window.HOST_URL;
 window.JSTPL_URL = window.STATIC_URL + "jstpl/";
