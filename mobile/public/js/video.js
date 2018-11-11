@@ -51,22 +51,10 @@ var initScrollVideo = function () {
             }
 
             // 添加新条目
-            addItems(itemsPerLoad, 10);
+            addItems(itemsPerLoad, lastIndex);
             //容器发生改变,如果是js滚动，需要刷新滚动
             $.refreshScroller();
         }, 1000);
     });
 
-    // 添加'refresh'监听器
-    $(document).on('refresh', '.pull-to-refresh-content',function(e) {
-        // 模拟2s的加载过程
-        setTimeout(function() {
-            var cardNumber = $(e.target).find('.card').length + 1;
-            var cardHTML = '<div class="card">' + 'aaadddd' + '</div>';
-
-            $(e.target).find('.video-list').prepend(cardHTML);
-            // 加载完毕需要重置
-            $.pullToRefreshDone('.pull-to-refresh-content');
-        }, 2000);
-    });
 };

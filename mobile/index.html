@@ -243,7 +243,6 @@
             new Swiper('.recommend-swiper-container',{
                 slidesPerView: 3,//一行显示3个
             });
-            initScrollVideo();
         });
     }
 
@@ -260,7 +259,7 @@
 
         }else if( target == "video"){
             smarty.html("video",{}, "page", function(){
-
+                initScrollVideo();
             });
 
         }else if( target == "owner" ){
