@@ -42,14 +42,18 @@ function initHome() {
                         up: {
 
                             callback: function() {
-                                window.guita.hotguita({}, function (data) {
-                                    var hot = {"hot": data.res};
-                                    console.log(hot);
-                                    smarty.append("hot_guita", hot, "hot-guita", function(){
+                                setTimeout(function(){
+                                    window.guita.hotguita({}, function (data) {
+                                        var hot = {"hot": data.res};
+                                        console.log(hot);
+                                        smarty.append("hot_guita", hot, "hot-guita", function(){
 
+                                        });
                                     });
-                                });
-                                miniRefresh.endUpLoading(false);
+                                    miniRefresh.endUpLoading(false);
+
+                                },2000)
+
                             }
                         }
                     });
