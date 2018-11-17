@@ -30,32 +30,8 @@
         <div class="guita-box" >
             <div class="guita-title">热卖吉他</div>
             <div class="refreshContainer-parent">
-                <div id="refreshContainer" class="hot-guita">
-                    {{foreach from=$hot item=row}}
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="list-block media-list">
-                                <ul>
-                                    <li class="item-content">
-                                        <div class="item-media">
-                                            <img src="http://39.105.114.48:8182/package/pack/smallsix_smurf7/{{$row.thumbnail}}" width="90">
-                                        </div>
-                                        <div class="item-inner">
-                                            <div class="item-title-row">
-                                                <div class="item-title">标题</div>
-                                            </div>
-                                            <div class="item-subtitle">子标题</div>
-                                            <div class="item-subtitle">
-                                                <span>2015/01/15</span>
-                                                <span> 价格800-900</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    {{/foreach}}
+                <div id="refreshContainer"  class="hot-guita">
+                    {{include file="hot_guita.html"}}
                 </div>
                 <!-- 加载提示符 -->
                 <div class="infinite-scroll-preloader refreshContainer hidden">

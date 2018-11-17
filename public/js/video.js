@@ -5,9 +5,7 @@
 function videoHtml() {
     smarty.html("video",{}, "page", function(){
         initScrollVideo();
-        refresh("refreshAll", "top", function () {
-            videoHtml();
-        });
+        refresh("refreshAll", "bottom");
     });
 }
 

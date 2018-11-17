@@ -33,13 +33,11 @@ function refresh(id, position, callback){
 
     //5.给列表dom监听touchend事件，此时说明用户已经松开了手指，应该进行异步操作了
     parent.on('touchend',function (e) {
-        console.log( e.originalEvent.changedTouches[0].pageY );
         if(isTop() && ableLoad){
             if( typeof(callback) == "function" ){
                 setTimeout(function(){
                     refreshText.classList.add("hidden");
                     console.log("回调函数");
-                    console.log(position);
                     callback();
                     ableLoad = false;
 

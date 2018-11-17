@@ -149,6 +149,21 @@ window.smarty = {
 		smartyGrep[ modifier_name ] = func_name;
 	},
 
+	append: function( tpl, data, container, callback )
+	{
+		smarty_load_tpl( tpl, function() {
+			var content = smarty_to_html( tpl, data );
+			if ( container )
+			{
+				var div = sparrow.jq_dom( container );
+				div.append( content );
+			}
+			if ( 'function' === typeof callback )
+			{
+				callback( content );
+			}
+		} );
+	},
 	/**
 	 * 加载一个模板, 并执行回调
 	 */

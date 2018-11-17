@@ -27,9 +27,14 @@ function initHome() {
                         slidesPerView: 3,//一行显示3个
                     });
 
-                    refresh("refreshContainer", "bottom");
-                    refresh("refreshAll", "top", function () {
-                        initHome();
+                    refresh("refreshContainer", "bottom", function () {
+                        window.guita.hotguita({}, function (data) {
+                            var hot = {"hot": data.res};
+                            console.log(hot);
+                            smarty.append("hot_guita", hot, "refreshContainer", function(){
+
+                            });
+                        });
                     });
                 });
             });
