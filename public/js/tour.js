@@ -4,6 +4,10 @@
 
 function tourHtml() {
     smarty.html("owner",{}, "page", function(){
-        refresh("refreshAll", "bottom");
+        /*
+        refresh("minirefresh",function () {
+            tourHtml();
+        }, null);
+        */
     });
 }

@@ -7,37 +7,37 @@ function initHome() {
         guitas.bar = data.res;
         window.guita.recommend({}, function (data) {
             guitas.recomment = data.res;
-            window.guita.hotguita({}, function (data) {
-                guitas.hot = data.res;
-                console.log(guitas);
-                smarty.html("home",guitas, "page", function(){
-                    //隐藏加载
-                    document.querySelector('.refreshAll').classList.add("hidden");
-                    new Swiper ('.swiper-container', {
-                        loop: true, // 循环模式选项
-                        // 如果需要分页器
-                        pagination: {
-                            el: '.swiper-pagination',
-                        },
-                        autoplay:{
-                            autoplay:true
-                        }
-                    });
-                    new Swiper('.recommend-swiper-container',{
-                        slidesPerView: 3,//一行显示3个
-                    });
+            guitas.hot = {};
+            console.log( guitas );
+            smarty.html("home",guitas, "page", function(){
+                //隐藏加载
+                document.querySelector('.refreshAll').classList.add("hidden");
+                new Swiper ('.swiper-container', {
+                    loop: true, // 循环模式选项
+                    // 如果需要分页器
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                    autoplay:{
+                        autoplay:true
+                    }
+                });
+                new Swiper('.recommend-swiper-container',{
+                    slidesPerView: 3,//一行显示3个
+                });
 
-                    refresh("minirefresh",null, function () {
-                        window.guita.hotguita({}, function (data) {
-                            var hot = {"hot": data.res};
-                            console.log(hot);
-                            smarty.append("hot_guita", hot, "hot-guita", function(){
+                refresh("minirefresh",function () {
+                    initHome();
+                }, function () {
+                    window.guita.hotguita({}, function (data) {
+                        var hot = {"hot": data.res};
+                        console.log(hot);
+                        smarty.append("hot_guita", hot, "hot-guita", function(){
 
-                            });
                         });
                     });
-
                 });
+
             });
         });
 

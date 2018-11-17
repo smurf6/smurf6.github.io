@@ -12,7 +12,7 @@ function refresh(id, downcallback, upcallback){
                     if( typeof(downcallback) == "function" ){
                         downcallback();
                     }
-                    miniRefresh.endDownLoading();
+                    miniRefresh.endDownLoading(false);
 
                 },2000)
 

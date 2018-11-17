@@ -36,10 +36,12 @@
 }
 
 .minirefresh-scroll {
-    position: relative;
     background: #fff0;
 }
 
 .minirefresh-totop {
     bottom: 80px;
+}
+#minirefresh > .minirefresh-scroll{
+    position: static;
 }
