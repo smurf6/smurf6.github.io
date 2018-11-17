@@ -10,8 +10,6 @@ function initHome() {
             guitas.hot = {};
             console.log( guitas );
             smarty.html("home",guitas, "page", function(){
-                //隐藏加载
-                document.querySelector('.refreshAll').classList.add("hidden");
                 new Swiper ('.swiper-container', {
                     loop: true, // 循环模式选项
                     // 如果需要分页器
@@ -29,12 +27,23 @@ function initHome() {
                 refresh("minirefresh",function () {
                     initHome();
                 }, function () {
-                    window.guita.hotguita({}, function (data) {
+                    var pageSize = 1;
+                    var pageIndex = $("#hot-guita > .card").children().length;
+                    if( pageIndex < 3 ){
+                        pageSize = 1;
+                    }
+                    var param = {"pageindex":pageIndex,"pageSize":pageSize};
+                    window.guita.hotguita(param, function (data) {
                         var hot = {"hot": data.res};
-                        console.log(hot);
-                        smarty.append("hot_guita", hot, "hot-guita", function(){
+                        if( data.res == 0 ){
+                            window.miniRefresh.endUpLoading(true);
+                            return;
+                        }else{
+                            window.miniRefresh.endUpLoading(false);
+                            smarty.append("hot_guita", hot, "hot-guita", function(){
 
-                        });
+                            });
+                        }
                     });
                 });
 

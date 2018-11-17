@@ -3,7 +3,7 @@
  */
 
 function refresh(id, downcallback, upcallback){
-    var miniRefresh = new MiniRefresh({
+    window.miniRefresh = new MiniRefresh({
         container: '#' + id,
         down: {
             callback: function() {
@@ -12,7 +12,7 @@ function refresh(id, downcallback, upcallback){
                     if( typeof(downcallback) == "function" ){
                         downcallback();
                     }
-                    miniRefresh.endDownLoading(false);
+                    window.miniRefresh.endDownLoading();
 
                 },2000)
 
@@ -25,7 +25,6 @@ function refresh(id, downcallback, upcallback){
                     if( typeof(upcallback) == "function" ){
                         upcallback();
                     }
-                    miniRefresh.endUpLoading(false);
 
                 },2000)
 
