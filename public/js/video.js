@@ -2,6 +2,15 @@
  * Created by lzz on 2018/11/11.
  */
 
+function videoHtml() {
+    smarty.html("video",{}, "page", function(){
+        initScrollVideo();
+        refresh("refreshAll", "top", function () {
+            videoHtml();
+        });
+    });
+}
+
 var initScrollVideo = function () {
     // 加载flag
     var loading = false;

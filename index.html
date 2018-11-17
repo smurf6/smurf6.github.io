@@ -10,18 +10,16 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <link rel="stylesheet" href="./public/vender/bootstrap-3.3.7/css/bootstrap.css">
-    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.css">
     <link rel="stylesheet" href="./public/vender/font-awesome/css/font-awesome.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.css">
 
     <link rel="stylesheet" href="./public/css/emoji.css">
     <link rel="stylesheet" href="./public/css/index.css">
 
+    <script src="./public/js/config.js"></script>
     <script type="text/javascript" src="./public/vender/jquery/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="./public/vender/bootstrap-3.3.7/js/bootstrap.js"></script>
 
-    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.js"></script>
     <!--common script for all pages-->
     <script src="./public/vender/sparrow/i18n/lang.js"></script>
@@ -38,10 +36,15 @@
     <link rel="stylesheet" href="./public/vender/audio/css/audio_player.css">
     <!--旋转动画插件-->
     <script src="./public/vender/audio/js/jquery.rotate.min.js"></script>
+    <script src="./public/js/refresh.js"></script>
     <!--音频播放器-->
     <script src="./public/vender/audio/js/audio_player.js"></script>
+    <script src="./public/js/index.js"></script>
     <script src="./public/js/music.js"></script>
     <script src="./public/js/video.js"></script>
+    <script src="./public/js/tour.js"></script>
+    <script src="http://39.105.114.48:8182/core/smallsix_smurf7_guita.js"></script>
+
     <style>
         .tab-item.active {
             color:  #ed8e07 !important;
@@ -220,32 +223,13 @@
             <span class="tab-label">旅游</span>
         </div>
     </nav>
-    <div id="page" class="content">
+    <div id="page" class="content refreshAll-parent">
 
     </div>
 </div>
 
 <script>
     initHome();
-
-    function initHome() {
-        smarty.html("home",{}, "page", function(){
-            new Swiper ('.swiper-container', {
-                loop: true, // 循环模式选项
-                // 如果需要分页器
-                pagination: {
-                    el: '.swiper-pagination',
-                },
-                autoplay:{
-                    autoplay:true
-                }
-            });
-            new Swiper('.recommend-swiper-container',{
-                slidesPerView: 3,//一行显示3个
-            });
-        });
-    }
-
     $(".tab-item").on("click",function() {
         $(".tab-item").removeClass("active");
         $(this).addClass("active");
@@ -253,21 +237,14 @@
         if( target == "home" ){
             initHome();
         }else if( target == "music" ){
-            smarty.html("music",{}, "page", function(){
-                initMusic();
-            });
+            initMusicHtml();
 
         }else if( target == "video"){
-            smarty.html("video",{}, "page", function(){
-                initScrollVideo();
-            });
+            videoHtml();
 
         }else if( target == "owner" ){
-            smarty.html("owner",{}, "page", function(){
-
-            });
+            tourHtml();
         }
-
     });
 
 

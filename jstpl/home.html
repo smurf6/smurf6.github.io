@@ -1,10 +1,14 @@
-<div class="content">
+<div class="content" id="refreshAll">
+    <!-- 加载提示符 -->
+    <div class="infinite-scroll-preloader refreshAll hidden">
+        <div class="preloader"></div>
+    </div>
     <!-- Slider -->
     <div class="swiper-container" data-space-between="10">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img class="bar-img" src="./public/image/bar1.jpeg" alt=""></div>
-            <div class="swiper-slide"><img class="bar-img" src="./public/image/bar1.jpeg" alt=""></div>
-            <div class="swiper-slide"><img class="bar-img" src="./public/image/bar1.jpeg" alt=""></div>
+            {{foreach from=$bar item=row}}
+            <div class="swiper-slide"><img class="bar-img" src="http://localhost:8182/package/pack/smallsix_smurf7/{{$row.thumbnail}}" alt=""></div>
+            {{/foreach}}
         </div>
         <div class="swiper-pagination" style="position: relative;top: -30px;"></div>
     </div>
@@ -13,163 +17,52 @@
             <div class="guita-title">推荐吉他</div>
             <div class="recommend-swiper-container" data-space-between="10">
                 <div class="swiper-wrapper">
+                    {{foreach from=$recomment item=row}}
                     <div class="swiper-slide">
                         <div class="recommend-img">
-                            <img class="bar-img" src="./public/image/guita4.jpeg" alt="">
+                            <img class="bar-img" src="http://localhost:8182/package/pack/smallsix_smurf7/{{$row.thumbnail}}" alt="">
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="recommend-img">
-                            <img class="bar-img" src="./public/image/guita3.jpeg" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="recommend-img">
-                            <img class="bar-img" src="./public/image/guita2.jpeg" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="recommend-img">
-                            <img class="bar-img" src="./public/image/guita4.jpeg" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="recommend-img">
-                            <img class="bar-img" src="./public/image/guita3.jpeg" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="recommend-img">
-                            <img class="bar-img" src="./public/image/guita2.jpeg" alt="">
-                        </div>
-                    </div>
+                    {{/foreach}}
                 </div>
             </div>
         </div>
-        <div class="guita-box">
+        <div class="guita-box" >
             <div class="guita-title">热卖吉他</div>
-            <div class="hot-guita">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="list-block media-list">
-                            <ul>
-                                <li class="item-content">
-                                    <div class="item-media">
-                                        <img src="./public/image/guita2.jpeg" width="90">
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="item-title-row">
-                                            <div class="item-title">标题</div>
+            <div class="refreshContainer-parent">
+                <div id="refreshContainer" class="hot-guita">
+                    {{foreach from=$hot item=row}}
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list-block media-list">
+                                <ul>
+                                    <li class="item-content">
+                                        <div class="item-media">
+                                            <img src="http://localhost:8182/package/pack/smallsix_smurf7/{{$row.thumbnail}}" width="90">
                                         </div>
-                                        <div class="item-subtitle">子标题</div>
-                                        <div class="item-subtitle">
-                                            <span>2015/01/15</span>
-                                            <span> 价格800-900</span>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">标题</div>
+                                            </div>
+                                            <div class="item-subtitle">子标题</div>
+                                            <div class="item-subtitle">
+                                                <span>2015/01/15</span>
+                                                <span> 价格800-900</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-
+                    {{/foreach}}
                 </div>
-                <div class="card">
-                    <div class="card-content">
-                        <div class="list-block media-list">
-                            <ul>
-                                <li class="item-content">
-                                    <div class="item-media">
-                                        <img src="./public/image/guita2.jpeg" width="90">
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="item-title-row">
-                                            <div class="item-title">标题</div>
-                                        </div>
-                                        <div class="item-subtitle">子标题</div>
-                                        <div class="item-subtitle">
-                                            <span>2015/01/15</span>
-                                            <span> 价格800-900</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <div class="list-block media-list">
-                            <ul>
-                                <li class="item-content">
-                                    <div class="item-media">
-                                        <img src="./public/image/guita2.jpeg" width="90">
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="item-title-row">
-                                            <div class="item-title">标题</div>
-                                        </div>
-                                        <div class="item-subtitle">子标题</div>
-                                        <div class="item-subtitle">
-                                            <span>2015/01/15</span>
-                                            <span> 价格800-900</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <div class="list-block media-list">
-                            <ul>
-                                <li class="item-content">
-                                    <div class="item-media">
-                                        <img src="./public/image/guita2.jpeg" width="90">
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="item-title-row">
-                                            <div class="item-title">标题</div>
-                                        </div>
-                                        <div class="item-subtitle">子标题</div>
-                                        <div class="item-subtitle">
-                                            <span>2015/01/15</span>
-                                            <span> 价格800-900</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <div class="list-block media-list">
-                            <ul>
-                                <li class="item-content">
-                                    <div class="item-media">
-                                        <img src="./public/image/guita2.jpeg" width="90">
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="item-title-row">
-                                            <div class="item-title">标题</div>
-                                        </div>
-                                        <div class="item-subtitle">子标题</div>
-                                        <div class="item-subtitle">
-                                            <span>2015/01/15</span>
-                                            <span> 价格800-900</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
+                <!-- 加载提示符 -->
+                <div class="infinite-scroll-preloader refreshContainer hidden">
+                    <div class="preloader"></div>
                 </div>
             </div>
+
         </div>
 
     </div>
