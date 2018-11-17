@@ -1,46 +1,41 @@
-<div class="content" id="refreshAll">
-    <!-- 加载提示符 -->
-    <div class="infinite-scroll-preloader refreshAll hidden">
-        <div class="preloader"></div>
-    </div>
-    <!-- Slider -->
-    <div class="swiper-container" data-space-between="10">
-        <div class="swiper-wrapper">
-            {{foreach from=$bar item=row}}
-            <div class="swiper-slide"><img class="bar-img" src="http://39.105.114.48:8182/package/pack/smallsix_smurf7/{{$row.thumbnail}}" alt=""></div>
-            {{/foreach}}
+<div class="content minirefresh-wrap" id="minirefresh">
+    <div class="minirefresh-scroll">
+        <!-- 加载提示符 -->
+        <div class="infinite-scroll-preloader refreshAll hidden">
+            <div class="preloader"></div>
         </div>
-        <div class="swiper-pagination" style="position: relative;top: -30px;"></div>
-    </div>
-    <div style="padding: 15px">
-        <div class="recommend-guita-box" style="height: 140px">
-            <div class="guita-title">推荐吉他</div>
-            <div class="recommend-swiper-container" data-space-between="10">
-                <div class="swiper-wrapper">
-                    {{foreach from=$recomment item=row}}
-                    <div class="swiper-slide">
-                        <div class="recommend-img">
-                            <img class="bar-img" src="http://39.105.114.48:8182/package/pack/smallsix_smurf7/{{$row.thumbnail}}" alt="">
+        <!-- Slider -->
+        <div class="swiper-container" data-space-between="10">
+            <div class="swiper-wrapper">
+                {{foreach from=$bar item=row}}
+                <div class="swiper-slide"><img class="bar-img" src="http://39.105.114.48:8182/package/pack/smallsix_smurf7/{{$row.thumbnail}}" alt=""></div>
+                {{/foreach}}
+            </div>
+            <div class="swiper-pagination" style="position: relative;top: -30px;"></div>
+        </div>
+        <div style="padding: 15px">
+            <div class="recommend-guita-box" style="height: 140px">
+                <div class="guita-title">推荐吉他</div>
+                <div class="recommend-swiper-container" data-space-between="10">
+                    <div class="swiper-wrapper">
+                        {{foreach from=$recomment item=row}}
+                        <div class="swiper-slide">
+                            <div class="recommend-img">
+                                <img class="bar-img" src="http://39.105.114.48:8182/package/pack/smallsix_smurf7/{{$row.thumbnail}}" alt="">
+                            </div>
                         </div>
+                        {{/foreach}}
                     </div>
-                    {{/foreach}}
                 </div>
             </div>
-        </div>
-        <div class="guita-box" >
-            <div class="guita-title">热卖吉他</div>
-            <div class="refreshContainer-parent">
-                <div id="refreshContainer"  class="hot-guita">
+            <div class="guita-box" >
+                <div class="guita-title">热卖吉他</div>
+                <div class="hot-guita" id="hot-guita">
                     {{include file="hot_guita.html"}}
                 </div>
-                <!-- 加载提示符 -->
-                <div class="infinite-scroll-preloader refreshContainer hidden">
-                    <div class="preloader"></div>
-                </div>
+
             </div>
 
         </div>
-
     </div>
-
 </div>
