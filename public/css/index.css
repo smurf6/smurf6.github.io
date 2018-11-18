@@ -92,12 +92,12 @@
 }
 div.contact-div.show{
     animation-name:moveContactRight;
-    animation-duration: 1s;
+    animation-duration: 500ms;
     left:0px;
 }
 div.contact-div.noshow{
     animation-name:moveContactLeft;
-    animation-duration: 1s;
+    animation-duration: 500ms;
 }
 .contact-div{
     border-top-right-radius: 35px;
