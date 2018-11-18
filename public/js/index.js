@@ -53,21 +53,3 @@ function initHome() {
     });
 
 }
-
-
-$(document).on("click","#contact-button", function () {
-    var contact_box = $("#contact-div");
-    if( contact_box.hasClass("show") ){
-        contact_box.removeClass("show");
-        contact_box.addClass("noshow");
-        $("#contact-button-icon").removeClass("fa-angle-double-left");
-        $("#contact-button-icon").addClass("fa-angle-double-right");
-        $("#contact-button-text").text("快速联系");
-    }else{
-        contact_box.addClass("show");
-        contact_box.removeClass("noshow");
-        $("#contact-button-icon").removeClass("fa-angle-double-right");
-        $("#contact-button-icon").addClass("fa-angle-double-left");
-        $("#contact-button-text").text("快速收起");
-    }
-});
