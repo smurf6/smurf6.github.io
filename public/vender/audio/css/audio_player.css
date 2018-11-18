@@ -152,9 +152,9 @@
 .meun_btn{
   z-index: 10000;
   position: fixed;
-  bottom: 55px;
-  color: #ffffff;
-  border: 1px solid #f7f7f8;
+  top: 206px;
+  color: #00cfb9;
+  border: 1px solid #00cfb9;
   padding: 5px;
   width: 30px;
   height: 30px;
