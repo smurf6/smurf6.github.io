@@ -30,7 +30,7 @@ function initHome() {
                     var pageSize = 1;
                     var pageIndex = $("#hot-guita > .card").children().length;
                     if( pageIndex < 3 ){
-                        pageSize = 1;
+                        pageSize = 3;
                     }
                     var param = {"pageindex":pageIndex,"pageSize":pageSize};
                     window.guita.hotguita(param, function (data) {
