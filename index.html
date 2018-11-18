@@ -270,8 +270,7 @@
         }
     });
 
-
-    $(document).on("click","#contact-button", function () {
+    $("#contact-button").click(function () {
         var contact_box = $("#contact-div");
         if( contact_box.hasClass("show") ){
             contact_box.removeClass("show");
@@ -287,6 +286,7 @@
             $("#contact-button-text").text("快速收起");
         }
     });
+    
 </script>
 </body>
 </html>
