@@ -154,7 +154,8 @@
   position: fixed;
   top: 325px;
   color: #00cfb9;
-  border: 1px solid #00cfb9;
+  background-color: #fff;
+  border: 1px solid #fff;
   padding: 5px;
   width: 30px;
   height: 30px;
