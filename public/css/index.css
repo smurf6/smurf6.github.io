@@ -46,6 +46,12 @@
     position: static;
 }
 
+.guita-detail-link{
+    cursor: pointer;
+}
+.back-home{
+    cursor: pointer;
+}
 .bar-nav{
     color:#fff;
 }
