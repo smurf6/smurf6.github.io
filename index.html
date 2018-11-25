@@ -262,11 +262,31 @@
 </div>
 
 <script>
-    initHome();
+    if( window.location.href.split("#").length == 2 ){
+        $(".tab-item").removeClass("active");
+        var target = window.location.href.split("#")[1];
+        if( target.indexOf("music") > -1 ){
+            $('.tab-item[data-target="music"]').addClass("active");
+            initMusicHtml();
+        }else if(target.indexOf("video") > -1){
+            $('.tab-item[data-target="video"]').addClass("active");
+            videoHtml();
+        }else if(target.indexOf("owner") > -1){
+            $('.tab-item[data-target="owner"]').addClass("active");
+            tourHtml();
+        }else{
+            $('.tab-item[data-target="home"]').addClass("active");
+            initHome();
+        }
+    }else{
+        initHome();
+    }
+
     $(".tab-item").on("click",function() {
         $(".tab-item").removeClass("active");
         $(this).addClass("active");
         var target = $(this).data("target");
+        window.location.href = "#/" + target;
         if( target == "home" ){
             initHome();
         }else if( target == "music" ){

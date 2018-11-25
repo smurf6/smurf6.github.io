@@ -14,7 +14,7 @@ function refresh(id, downcallback, upcallback){
                     }
                     window.miniRefresh.endDownLoading();
 
-                },2000)
+                },10)
 
             }
         },
@@ -26,7 +26,7 @@ function refresh(id, downcallback, upcallback){
                         upcallback();
                     }
 
-                },2000)
+                },10)
 
             }
         }

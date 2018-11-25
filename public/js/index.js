@@ -73,3 +73,10 @@ $(document).on("click", ".guita.item-content", function () {
 $(document).on("click", ".back-home", function () {
     initHome();
 });
+
+smarty.register_modifier( 'price_range', function (val) {
+    if( val > 200 ){
+        return val - 200;
+    }
+    return val;
+});
