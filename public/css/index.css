@@ -86,3 +86,7 @@
     font-weight: bold;
     color: #bf7910b5;
 }
+.guita-detail-link:active{
+    border: 1px solid #e7b023;
+    background-color: #fff;
+}
