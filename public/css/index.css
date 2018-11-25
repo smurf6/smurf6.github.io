@@ -63,6 +63,9 @@
     background-color: #ed8d00;
 }
 
+.bar .button.back-home.active{
+    background-color: #ed8d00;
+}
 .bar-nav > .back-home,.title{
     color:#fff;
 }

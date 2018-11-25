@@ -75,7 +75,7 @@ $(document).on("click", ".guita-detail-link", function () {
 });
 
 $(document).on("click", ".back-home", function () {
-    //$(this).addClass("active");
+    $(this).addClass("active");
     initHome();
 });
 
