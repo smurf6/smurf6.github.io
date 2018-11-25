@@ -56,11 +56,10 @@
     color:#fff;
 }
 
-.bar-nav > .button.back-home:active{
-    border: 1px solid #929698;
+.button.back-home:active{
     background-color: #ed8d00;
 }
-.bar-nav > .button.back-home{
+.button.back-home{
     border: 1px solid #929698;
 }
 .bar-nav > .back-home,.title{
