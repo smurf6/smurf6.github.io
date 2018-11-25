@@ -61,11 +61,9 @@
 }
 .bar .back-home:active{
     background-color: #ed8d00;
+    border: 1px solid #ed8d00;
 }
 
-.bar .back-home.active{
-    background-color: #ed8d00;
-}
 .bar .back-home{
     color: #fff;
     font-size: 0.7rem;
