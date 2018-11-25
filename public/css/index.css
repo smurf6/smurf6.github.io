@@ -59,7 +59,7 @@
 .back-home{
     border: 1px solid #929698;
 }
-.back-home.active{
+.bar .button.back-home:active{
     background-color: #ed8d00;
 }
 
