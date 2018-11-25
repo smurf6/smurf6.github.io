@@ -59,8 +59,7 @@
 .back-home{
     border: 1px solid #929698;
 }
-.back-home:active{
-    background:#ed8d00;
+.back-home.active{
     background-color: #ed8d00;
 }
 
