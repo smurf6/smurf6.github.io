@@ -46,109 +46,25 @@
     position: static;
 }
 
-/* From -> To */
-@keyframes moveContactLeft {
-    from    { left: 0px; }
-    to      { left: -190px; }
-}
-/* From -> To */
-@keyframes moveContactRight {
-    from    { left: -190px; }
-    to      { left: 0px; }
-}
-.animation-left{
-    animation-name:moveContactLeft;
-}
-.animation-right{
-    animation-name:moveContactRight;
-}
-.contact-div-content{
-    position: fixed;
-    left: -225px;
-    width: 225px;
-    bottom: 158px;
-    background-color: #ffffffeb;
-    z-index: 9999;
-    border-top-right-radius: 7px;
-}
-
-
-.contact-div-content .phone{
-    
-}
-
-.contact-item-content{
-    padding: 20px;
-    text-align: center;
-}
-
-
-div.contact-div-content.show{
-    animation-name:moveContactRight;
-    animation-duration: 500ms;
-    left:0px;
-}
-
-div.contact-div-content.noshow{
-    animation-name:moveContactLeft;
-    animation-duration: 500ms;
-}
-
-.contact-div{
-    position: fixed;
-    left: -190px;
-    width: 250px;
-    bottom: 100px;
-    background-color: #ffffffeb;
-    height: 60px;
-    z-index: 9999;
-}
-
-.contact-div-item{
-    float:left;
-    width: 60px;
-}
-
-.contact-div-item.active{
-    color:#f99d15;
-}
-.contact-div-item > .item-top{
-    float:left;
-    color:#f99d15;
-    width: 60px;
-    text-align: center;
-    font-size: 24px;
-    margin-top: 10px;
-    margin-bottom: 2px;
-}
-.contact-div-item > .item-bottom{
-    float:left;
-    text-align: center;
-    width: 60px;
-    font-size: 8px;
-}
-div.contact-div.show{
-    animation-name:moveContactRight;
-    animation-duration: 500ms;
-    left:0px;
-}
-div.contact-div.noshow{
-    animation-name:moveContactLeft;
-    animation-duration: 500ms;
-}
-.contact-div{
-    border-top-right-radius: 35px;
-    border-bottom-right-radius: 35px;
-}
-.contact-button{
-    z-index: 10000;
+.bar-nav{
     color:#fff;
-    float: left;
-    width: 45px;
-    height: 45px;
-    margin: 7px;
-    padding-top: 4px;
-    padding-left: 1px;
-    background: #79736c91;
-    border-radius: 100%;
+}
+
+.bar-nav > .button.back-home{
+    border: 1px solid #929698;
+}
+.bar-nav > .back-home,.title{
+    color:#fff;
+}
+
+.guita.item-content:active{
+    background-color: #fff;
+}
+.detail-card{
+    background: rgba(243, 235, 235, 0.8);
+    color: #b7986d;
+    box-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.3);
+    position: relative;
+    border-radius: 0.1rem;
+    font-size: 0.7rem;
 }

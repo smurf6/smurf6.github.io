@@ -53,3 +53,23 @@ function initHome() {
     });
 
 }
+
+$(document).on("click", ".guita.item-content", function () {
+    var id = $(this).data("id");
+    smarty.html("guita_detail",{}, "page", function(){
+        new Swiper ('.swiper-container', {
+            loop: true, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            autoplay:{
+                autoplay:true
+            }
+        });
+    });
+});
+
+$(document).on("click", ".back-home", function () {
+    initHome();
+});
