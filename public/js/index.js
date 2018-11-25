@@ -54,20 +54,24 @@ function initHome() {
 
 }
 
-$(document).on("click", ".guita.item-content", function () {
+$(document).on("click", ".guita-detail-link", function () {
     var id = $(this).data("id");
-    smarty.html("guita_detail",{}, "page", function(){
-        new Swiper ('.swiper-container', {
-            loop: true, // 循环模式选项
-            // 如果需要分页器
-            pagination: {
-                el: '.swiper-pagination',
-            },
-            autoplay:{
-                autoplay:true
-            }
+    window.guita.getGuitaDetail({"id":id}, function (data) {
+        var imagestr = data.res[0].image;
+        var images = imagestr.split(",");
+        smarty.html("guita_detail",{"res":data.res[0],"images":images}, "page", function(){
+            new Swiper ('.swiper-container', {
+                loop: true, // 循环模式选项
+                // 如果需要分页器
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+                autoplay:{
+                    autoplay:true
+                }
+            });
         });
-    });
+    })
 });
 
 $(document).on("click", ".back-home", function () {

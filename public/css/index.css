@@ -67,4 +67,12 @@
     position: relative;
     border-radius: 0.1rem;
     font-size: 0.7rem;
+    height: 500px;
+}
+.detail-li{
+    margin-bottom: 10px;
+}
+.detail-label{
+    font-weight: bold;
+    color: #bf7910b5;
 }

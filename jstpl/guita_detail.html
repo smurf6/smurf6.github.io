@@ -9,21 +9,25 @@
     <div>
         <div class="swiper-container" data-space-between="10">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img class="bar-img" src="http://39.105.114.48:8182/package/pack/smallsix_smurf7/guita-thumbnail-1542124519-bar1.jpeg" alt="">
-                </div>
+                {{foreach from=$images item=image}}
+                <div class="swiper-slide"><img class="bar-img" src="http://39.105.114.48:8182/package/pack/smallsix_smurf7/{{$image}}" alt=""></div>
+                {{/foreach}}
             </div>
             <div class="swiper-pagination" style="position: relative;top: -30px;"></div>
         </div>
         <div class="detail-card">
             <div class="card-content">
                 <div class="card-content-inner">
-                    <h3>滚动具有三种模式：</h3>
-                    <ul>
-                        <li>1. auto模式: scroller.js 根据系统版本号来决定什么时候使用js的滚动（默认）</li>
-                        <li>2. js模式: 总是使用js滚动（即IScroll）</li>
-                        <li>3. native模式： 总是使用原生滚动条</li>
-                    </ul>
+                    <h3 class="detail-label">{{$res.title}}</h3>
+                    <div class="detail-li" style="color:#948e88">
+                        <span class="detail-label">简介</span> {{$res.intro}}
+                    </div>
+                    <div class="detail-li">
+                        <span class="detail-label">上市时间</span> {{$res.add_time|date}}
+                    </div>
+                    <div class="detail-li">
+                        <span class="detail-label">联系艺环</span> 电话17721207044 微信
+                    </div>
                 </div>
             </div>
         </div>
