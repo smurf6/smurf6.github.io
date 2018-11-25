@@ -59,13 +59,29 @@
 .back-home{
     border: 1px solid #929698;
 }
-.bar .button.back-home:active{
+.bar .back-home:active{
     background-color: #ed8d00;
 }
 
-.bar .button.back-home.active{
+.bar .back-home.active{
     background-color: #ed8d00;
 }
+.bar .back-home{
+    color: #fff;
+    font-size: 0.7rem;
+    font-family: inherit;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 10px;
+    height: 35px;
+    margin-top: 7px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+}
+.bar .back-home > span{
+    margin-top: -6px;
+}
+
 .bar-nav > .back-home,.title{
     color:#fff;
 }
