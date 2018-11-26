@@ -48,6 +48,7 @@
     <script src="./public/js/video.js"></script>
     <script src="./public/js/tour.js"></script>
     <script src="http://39.105.114.48:8182/core/smallsix_smurf7_guita.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
     <style>
         .tab-item.active {
@@ -261,6 +262,8 @@
     </div>
 </div>
 
+<div class="share-frend">分享朋友</div>
+<br>
 <script>
     if( window.location.href.split("#").length == 2 ){
         $(".tab-item").removeClass("active");
@@ -346,6 +349,40 @@
         }
 
     });
+</script>
+<script>
+    $(function () {
+        wx.config({
+            debug: true,
+            appId: "wx18a1a4265b89b855",
+            timestamp: "1543246199",
+            nonceStr: "fef898c0-e7f4-438e-9521-417bcd3b0d90",
+            signature: "de7808ac27739823ed2f399ec0c4dffc1095b572",
+            jsApiList: [
+                'onMenuShareWechat',
+                'onMenuShareTimeline',
+                'onMenuShareTimeline',
+                'shareWechatMessage',
+                'shareAppMessage'
+            ]
+        });
+        $(".share-frend").click(function () {
+            wx.invoke(
+                    "shareWechatMessage", {
+                        title: 'aa', // 分享标题
+                        desc: 'ddd', // 分享描述
+                        link: 'ddd', // 分享链接
+                        imgUrl: 'dddd' // 分享封面
+                    }, function(res) {
+                        if (res.err_msg == "shareWechatMessage:ok") {
+                        }
+                    }
+            );
+        });
+
+        
+
+    })
 </script>
 </body>
 </html>
