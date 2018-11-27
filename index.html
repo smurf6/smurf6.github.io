@@ -354,7 +354,8 @@
 <script>
 
     $(function () {
-        ajax.get("http://39.105.114.48:8182/admin/getWechatSign", function (data) {
+        var url = location.href.split('#')[0];
+        ajax.post("http://39.105.114.48:8182/admin/getWechatSign", JSON.stringify({"url": url}),function (data) {
             var res = data.res;
             wx.config({
                 debug: true,
