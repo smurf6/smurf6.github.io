@@ -63,11 +63,11 @@ div.contact-div-content.noshow{
 }
 
 .contact-div-item.active{
-    color:#f99d15;
+    color:#0fceb9;
 }
 .contact-div-item > .item-top{
     float:left;
-    color:#f99d15;
+    color:#0fceb9;
     width: 60px;
     text-align: center;
     font-size: 24px;
@@ -102,6 +102,6 @@ div.contact-div.noshow{
     margin: 7px;
     padding-top: 4px;
     padding-left: 1px;
-    background: #79736c91;
+    background: #00cdb8;
     border-radius: 100%;
 }

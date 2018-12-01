@@ -2,35 +2,63 @@
     <div class="minirefresh-scroll">
         <div class="swiper-container" data-space-between="10">
             <div class="swiper-wrapper">
-                {{foreach from=$bar item=row}}
-                <div class="swiper-slide guita-detail-link"  data-id="{{$row.id}}"><img class="bar-img" src="http://39.105.114.48:8182/package/pack/smallsix_smurf7/{{$row.thumbnail}}" alt=""></div>
-                {{/foreach}}
+                <div class="swiper-slide" ><img class="bar-img" src="./public/image/home/bar5.jpeg" alt=""></div>
+                <div class="swiper-slide" ><img class="bar-img" src="./public/image/yh3.jpeg" alt=""></div>
             </div>
             <div class="swiper-pagination" style="position: relative;top: -30px;"></div>
         </div>
-        <div style="padding: 15px">
-            <div class="recommend-guita-box" style="height: 140px">
-                <div class="guita-title">推荐吉他</div>
-                <div class="recommend-swiper-container" data-space-between="10">
-                    <div class="swiper-wrapper">
-                        {{foreach from=$recomment item=row}}
-                        <div class="swiper-slide guita-detail-link" data-id="{{$row.id}}">
-                            <div class="recommend-img">
-                                <img class="bar-img" src="http://39.105.114.48:8182/package/pack/smallsix_smurf7/{{$row.thumbnail}}" alt="">
-                            </div>
-                        </div>
-                        {{/foreach}}
-                    </div>
-                </div>
-            </div>
-            <div class="guita-box" >
-                <div class="guita-title">热卖吉他</div>
-                <div class="hot-guita" id="hot-guita">
-                    {{include file="hot_guita.html"}}
-                </div>
-
-            </div>
-
-        </div>
     </div>
 </div>
+<div class="content" style="margin-top: 255px;height:600px;z-index: 9998;">
+    <div class="content-padded icon-list">
+        <div class="row">
+            <div class="col-50">
+                <div class="content-icon-div">
+                    <div class="content-icon" data-target="video" >
+                        <img src="./public/image/home/icon2.jpeg" alt="">
+                    </div>
+                    <div class="content-icon-info">培训视频</div>
+                </div>
+            </div>
+            <div class="col-50">
+                <div class="content-icon-div">
+                    <div class="content-icon" data-target="music" >
+                        <img src="./public/image/home/icon1.jpeg" alt="">
+                    </div>
+                    <div class="content-icon-info">我的音乐</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-50">
+                <div class="content-icon-div">
+                    <div class="content-icon">
+                        <img src="./public/image/home/icon6.jpeg" alt="">
+                    </div>
+                    <div class="content-icon-info">课程收费</div>
+                </div>
+            </div>
+            <div class="col-50">
+                <div class="content-icon-div">
+                    <div class="content-icon"  data-target="tour" >
+                        <img src="./public/image/home/icon3.jpeg" alt="">
+                    </div>
+                    <div class="content-icon-info">去过的地方</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-50">
+                <div class="content-icon-div">
+                    <div class="content-icon">
+                        <img src="./public/image/home/icon5.jpeg" alt="">
+                    </div>
+                    <div class="content-icon-info">个人简介</div>
+                </div>
+            </div>
+            <div class="col-50">
+
+            </div>
+        </div>
+    </div>
+</div><!-- .content -->

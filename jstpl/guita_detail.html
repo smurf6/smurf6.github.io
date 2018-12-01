@@ -19,7 +19,8 @@
                 <div class="card-content-inner">
                     <h3 class="detail-label">{{$res.title}}</h3>
                     <div class="detail-li" style="color:#948e88">
-                        <span class="detail-label">简介</span> {{$res.intro}}
+                        <span class="detail-label">简介</span>
+                        <div style="white-space: pre-wrap;">{{$res.intro}}</div>
                     </div>
                     <div class="detail-li">
                         <span class="detail-label">上市时间</span> {{$res.add_time|date}}

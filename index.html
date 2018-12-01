@@ -51,8 +51,45 @@
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
     <style>
+
+        .bg {
+            background: url("./public/image/bg.jpeg") no-repeat fixed;
+            width:100%;
+            height:100%;
+            background-size:100% 100%;
+            text-align: center;
+            line-height: 600px;
+        }
+        .bg-blur {
+            float: left;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(10px);
+            -o-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+        }
+
+        .bar {
+            background-color: rgb(167, 175, 179);
+        }
+        .card {
+            background: rgba(80, 74, 74, 0.6);
+            color: #8dc3a9;
+            box-shadow: 0 0.05rem 0.1rem rgba(0,0,0,.3);
+        }
+
+        .title {
+            color: #7a838c;
+            font-weight: normal;
+        }
+
+        
         .tab-item.active {
-            color:  #ed8e07 !important;
+            color:  #0fceb9 !important
         }
         .tab-item.inactive {
         }
@@ -82,52 +119,60 @@
             color: #ffffff;
         }
         .swiper-container {
-            height: 220px;
+            height: 250px;
         }
         .swiper-wrapper>.swiper-slide>.bar-img{
             width: 100%;
-            height:220px;
+            height:250px;
         }
-        .recommend-swiper-container{
-            overflow: hidden;
-            height:110px;
-        }
-        .recommend-swiper-container>.swiper-wrapper>.swiper-slide>.recommend-img>.bar-img{
-            height:100px;
-        }
-        .recommend-img{
-            width:100%;
-            height:100%;
-            overflow: hidden;
-            border:1px solid #80808000;
-            border-radius: 5px;
-        }
-        .recommend-swiper-container>.swiper-wrapper>.swiper-slide{
-            height:100px;
-            overflow: hidden;
-            padding: 3px;
-        }
-        .hot-guita {
-            height:auto;
-            background: rgba(243, 235, 235, 0.6);
-        }
-        .hot-guita > .card{
-            margin: 0px;
-            background: rgba(243, 235, 235, 0.0);
-            color: #e49e35;
-            box-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.06);
-        }
-        .guita-box{
 
-        }
-        .guita-title{
-            color: #b39e69;
-            width: 100%;
-            height: 30px;
-        }
         .swiper-pagination-bullet-active {
             opacity: 1;
             background: #cc8308;
+        }
+        .icon-list > .row{
+            margin-bottom: 10px;
+            margin-left: -10px;
+            margin-right: 5px;
+        }
+        .icon-list > .row > .col-50{
+
+        }
+        .content-icon-div{
+            width: 100%;
+            height:180px;
+            padding-top: 10px;
+            background:#ffffffc4;
+            text-align: center;
+        }
+        .content-icon{
+            cursor: pointer;
+            margin: 0 auto;
+            margin-top: 5px;
+            width: 120px;
+            height:120px;
+            border: 1px solid #6ed3c7;
+            overflow: hidden;
+            border-radius: 100%;
+            text-align: center;
+        }
+        .content-icon > img{
+            margin: 0 auto;
+            width:120px;
+        }
+        .content-icon > img:hover{
+            -webkit-filter: blur(1px);
+            filter: blur(1px);
+        }
+        .content-icon-info{
+            float: left;
+            width: 100%;
+            height: 50px;
+            color: #62cec1;
+            padding-top: 5px;
+            font-size: 0.8rem;
+            text-align: center;
+
         }
         .tour-top-content{
             height:280px;
@@ -221,7 +266,7 @@
             </span>
             <span class="tab-label">视频</span>
         </div>
-        <div data-target="owner" class="tab-item">
+        <div data-target="tour" class="tab-item">
             <span class="icon">
                 <span class="fa fa-street-view"></span>
             </span>
@@ -275,8 +320,8 @@
         }else if(target.indexOf("video") > -1){
             $('.tab-item[data-target="video"]').addClass("active");
             videoHtml();
-        }else if(target.indexOf("owner") > -1){
-            $('.tab-item[data-target="owner"]').addClass("active");
+        }else if(target.indexOf("tour") > -1){
+            $('.tab-item[data-target="tour"]').addClass("active");
             tourHtml();
         }else{
             $('.tab-item[data-target="home"]').addClass("active");
@@ -299,8 +344,23 @@
         }else if( target == "video"){
             videoHtml();
 
-        }else if( target == "owner" ){
+        }else if( target == "tour" ){
             tourHtml();
+        }
+    });
+
+    $(document).on("click",".content-icon", function () {
+        var target = $(this).data("target");
+        if( target == "home" ){
+            $('.tab-item[data-target="home"]').click();
+        }else if( target == "music" ){
+            $('.tab-item[data-target="music"]').click();
+
+        }else if( target == "video"){
+            $('.tab-item[data-target="video"]').click();
+
+        }else if( target == "tour" ){
+            $('.tab-item[data-target="tour"]').click();
         }
     });
 
@@ -352,7 +412,7 @@
     });
 </script>
 <script>
-
+    /*
     $(function () {
         var url = location.href.split('#')[0];
         ajax.post("http://39.105.114.48:8182/admin/getWechatSign", JSON.stringify({"url": url}),function (data) {
@@ -428,7 +488,7 @@
 
 
     })
-
+    */
 </script>
 </body>
 </html>
