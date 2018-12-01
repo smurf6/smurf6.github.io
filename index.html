@@ -87,7 +87,7 @@
             font-weight: normal;
         }
 
-        
+
         .tab-item.active {
             color:  #0fceb9 !important
         }
@@ -361,6 +361,14 @@
 
         }else if( target == "tour" ){
             $('.tab-item[data-target="tour"]').click();
+        }else if( target == "course" ){
+            smarty.html("course",{}, "page", function(){
+
+            });
+        }else if( target == "owner"){
+            smarty.html("owner",{}, "page", function(){
+
+            });
         }
     });
 
@@ -409,6 +417,11 @@
             contact_box.removeClass("noshow");
         }
 
+    });
+
+
+    $(document).on("click", ".back-home", function () {
+        initHome();
     });
 </script>
 <script>

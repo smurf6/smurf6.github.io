@@ -3,7 +3,7 @@
  */
 
 function tourHtml() {
-    smarty.html("owner",{}, "page", function(){
+    smarty.html("tour",{}, "page", function(){
         refresh("minirefresh",null, null);
 
     });
