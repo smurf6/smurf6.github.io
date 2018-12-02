@@ -151,6 +151,12 @@
             background:#ffffffc4;
             text-align: center;
         }
+        .content-icon-div:hover{
+            background-color: #ffffff47;
+        }
+        .content-icon-div:active{
+            background-color: #ffffff47;
+        }
         .content-icon{
             cursor: pointer;
             margin: 0 auto;
@@ -162,6 +168,7 @@
             border-radius: 100%;
             text-align: center;
         }
+
         .content-icon > img{
             margin: 0 auto;
             width:120px;
@@ -358,7 +365,7 @@
         }
     });
 
-    $(document).on("click",".content-icon", function () {
+    $(document).on("click",".content-icon-div", function () {
         var target = $(this).data("target");
         if( target == "home" ){
             $('.tab-item[data-target="home"]').click();
