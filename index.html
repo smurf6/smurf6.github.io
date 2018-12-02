@@ -84,6 +84,7 @@
             color:  #0fceb9 !important;
         }
         .back-home > span.icon{
+            font-weight: normal;
             font-size: 0.8rem;
         }
         .card {
@@ -444,6 +445,7 @@
 
 
     $(document).on("click", ".back-home", function () {
+        $(this).addClass("active");
         initHome();
     });
 </script>
