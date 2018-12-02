@@ -26,7 +26,7 @@
 /*
      * 默认背景色改成白色，直接避免下拉和正文重叠现象，可以覆盖
      */
-  background: #fff;
+  background: #fff0;
 }
 .body-scroll-wrap {
   position: relative;

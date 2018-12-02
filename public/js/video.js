@@ -4,66 +4,26 @@
 
 function videoHtml() {
     smarty.html("video",{}, "page", function(){
-        initScrollVideo();
-        refresh("minirefresh",function () {
-            videoHtml();
-        }, null);
+        refresh("minirefresh",null, function () {
+            var pageSize = 1;
+            var pageIndex = $("#video-list > .card").children().length;
+            if( pageIndex < 3 ){
+                pageSize = 3;
+            }
+            var param = {"pageindex":pageIndex,"pageSize":pageSize};
+            console.log(param);
+            window.video.videoList(param, function (data) {
+                console.log(data);
+                if( data.res == 0 ){
+                    window.miniRefresh.endUpLoading(true);
+                    return;
+                }else{
+                    window.miniRefresh.endUpLoading(false);
+                    smarty.append("video_item", data, "video-list", function(){
+
+                    });
+                }
+            });
+        });
     });
 }
-
-var initScrollVideo = function () {
-    // 加载flag
-    var loading = false;
-    // 最多可加载的条目
-    var maxItems = 100;
-
-    // 每次加载添加多少条目
-    var itemsPerLoad = 20;
-
-    function addItems(number, lastIndex) {
-        // 生成新条目的HTML
-        var html = '';
-        for (var i = lastIndex + 1; i <= lastIndex + number; i++) {
-            html += '<li class="item-content"><div class="item-inner"><div class="item-title">Item ' + i + '</div></div></li>';
-        }
-        // 添加新条目
-        $('.infinite-scroll-bottom .video-list').append(html);
-
-    }
-    //预先加载20条
-    addItems(itemsPerLoad, 0);
-
-    // 上次加载的序号
-
-    var lastIndex = 20;
-
-    // 注册'infinite'事件处理函数
-    $(document).on('infinite', '.infinite-scroll-bottom',function() {
-
-        // 如果正在加载，则退出
-        if (loading) return;
-
-        // 设置flag
-        loading = true;
-
-        // 模拟1s的加载过程
-        setTimeout(function() {
-            // 重置加载flag
-            loading = false;
-
-            if (lastIndex >= maxItems) {
-                // 加载完毕，则注销无限加载事件，以防不必要的加载
-                $.detachInfiniteScroll($('.infinite-scroll'));
-                // 删除加载提示符
-                $('.infinite-scroll-preloader').remove();
-                return;
-            }
-
-            // 添加新条目
-            addItems(itemsPerLoad, lastIndex);
-            //容器发生改变,如果是js滚动，需要刷新滚动
-            $.refreshScroller();
-        }, 1000);
-    });
-
-};

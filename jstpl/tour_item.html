@@ -1,0 +1,16 @@
+{{foreach from=$res item=tour}}
+<div class="card tour-card">
+    <div class="tour-date">
+        20号
+    </div>
+    <div class="tour-right-content">
+        <div class="tour-image">
+            <img src="{{$tour.cover|image_address}}">
+        </div>
+        <div class="tour-item-content">
+            <p class="tour-text">{{$tour.intro}}</p>
+            <p class="tour-address">{{$tour.address}}</p>
+        </div>
+    </div>
+</div>
+{{/foreach}}
