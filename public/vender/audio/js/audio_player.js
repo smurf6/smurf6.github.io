@@ -108,6 +108,7 @@ var initMusic = function () {
     /*播放歌曲方法*/
     function play(j) {
         $("#music-load").removeClass("hidden");
+
         $cover.css('background-image', "url(" + window.audioUrl + musList[j].cov + ")");  /* 更换对应歌曲海报 */
         $music.attr('src', window.audioUrl + musList[j].voi);                             /* 更换对应歌曲链接 */
         $audioTitle.html(musList[j].tit);                               /* 更换对应歌曲名称 */
@@ -263,7 +264,9 @@ var initMusic = function () {
             lineHeight = $lyricLi.height(),               /* 每行歌词的高度 */
             $li =  $('.list_'+value);                       /* 当前行歌词 */
         $li.addClass('on').siblings().removeClass('on');
-        $("#music-load").addClass("hidden");
+        setTimeout(function () {
+            $("#music-load").addClass("hidden");
+        },3000);
         nTop = $li.attr('data-line');                       /* 获取 当前行歌词 的行数 */
 
         if(nTop >2){                                        /*歌词高亮显示在第四行*/
