@@ -2,7 +2,9 @@ function initMusicHtml() {
     smarty.html("music",{}, "page", function(){
         initMusic();
         setTimeout(function () {
-            $(".btn_play").click();
-        },5000);
+            if( $(".btn_play").hasClass("btn_pause") ){
+                $(".btn_play").click();
+            }
+        },6000);
     });
 }
