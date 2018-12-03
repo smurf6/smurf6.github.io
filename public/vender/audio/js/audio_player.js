@@ -1,3 +1,4 @@
+window.audioUrl = window.domain + "/package/pack/smallsix_smurf7/";
 var initMusic = function () {
     var rotatetimer,    /* 旋转定时器 */
         isNext = true,  /* 播放结束是下一首还是暂停 */
@@ -36,39 +37,34 @@ var initMusic = function () {
 
     (function getData() {
         $songList.empty();
-        $.ajax({
-            // url: "http://www.17sucai.com//preview/17147/2017-11-02/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8Ajaxv2.0_3/audio/js/music.json",
-            url: "public/vender/audio/js/music.json",
-            cache:false,
-            dataType: "json",
-            success:function(data){
-                musList = data;         /* 获取json数据 赋值 给musList数组 */
-                lens=musList.length;
-                /*初始化*/
-                $cover.css('background-image', "url(" + musList[0].cov + ")");/*歌曲海报 */
-                $music.attr('src', musList[0].voi);          /* 歌曲链接 */
-                $audioTitle.html(musList[0].tit);            /* 歌曲名称 */
-                $singer.html(musList[0].inf);                /* 歌手信息，在此直接放字符串了，也可以像歌词一样单独列出来 */
-                /*歌曲列表*/
-                $.each( musList, function(index, items) {
-                    $songList.html($songList.html()+'<li>' +items.tit + '</li>');
-                });
-                $songList.find('li').eq(0).addClass('cur'); /* 初始化歌曲列表 第一首高亮 */
-                /*点播歌曲*/
-                $songList.find('li').on('click', function() {
-                    i = $(this).index();                    /* i 用来 关联点播以后的“上一首”“下一首”*/
-                    play(i);
-                    $(this).parent().slideToggle();
-                });
-                getTime();                                   /* 初始化第一个歌曲时长 */
-                renderLyric(0)                               /* 初始化第一个歌曲歌词 */
-            },
-            error:function(){
-                $songList.html('<li>音乐列表获取失败！</li>');
-                $lyricList.html('<li style="height:auto;color: red; padding: 0.5rem; text-align: left ">ajax异步获取歌曲， 必须服务器支持才能打开，例如：wampserver ，MAMP 或者 webstorm 浏览器预览！</li>');
-                console.log((" ajax异步获取歌曲， 必须服务器支持才能打开，例如：wampserver ，MAMP 或者 webstorm 浏览器预览"));
-            }
+        window.music.musicList({},function (obj) {
+            var data = obj.res;
+            musList = data;         /* 获取json数据 赋值 给musList数组 */
+            lens=musList.length;
+            /*初始化*/
+            $cover.css('background-image', "url(" + window.audioUrl + musList[0].cov + ")");/*歌曲海报 */
+            $music.attr('src', window.audioUrl + musList[0].voi);          /* 歌曲链接 */
+            $audioTitle.html(musList[0].tit);            /* 歌曲名称 */
+            $singer.html(musList[0].inf);                /* 歌手信息，在此直接放字符串了，也可以像歌词一样单独列出来 */
+            /*歌曲列表*/
+            $.each( musList, function(index, items) {
+                $songList.html($songList.html()+'<li>' +items.tit + '</li>');
+            });
+            $songList.find('li').eq(0).addClass('cur'); /* 初始化歌曲列表 第一首高亮 */
+            /*点播歌曲*/
+            $songList.find('li').on('click', function() {
+                i = $(this).index();                    /* i 用来 关联点播以后的“上一首”“下一首”*/
+                play(i);
+                $(this).parent().slideToggle();
+            });
+            getTime();                                   /* 初始化第一个歌曲时长 */
+            renderLyric(0)                               /* 初始化第一个歌曲歌词 */
+        },function (error) {
+            $songList.html('<li>音乐列表获取失败！</li>');
+            $lyricList.html('<li style="height:auto;color: red; padding: 0.5rem; text-align: left ">ajax异步获取歌曲， 必须服务器支持才能打开，例如：wampserver ，MAMP 或者 webstorm 浏览器预览！</li>');
+            console.log((" ajax异步获取歌曲， 必须服务器支持才能打开，例如：wampserver ，MAMP 或者 webstorm 浏览器预览"));
         });
+
         $meunBtn.on('click',function(){
             $songList.delay().slideToggle();
         });
@@ -111,8 +107,8 @@ var initMusic = function () {
 
     /*播放歌曲方法*/
     function play(j) {
-        $cover.css('background-image', "url(" + musList[j].cov + ")");  /* 更换对应歌曲海报 */
-        $music.attr('src', musList[j].voi);                             /* 更换对应歌曲链接 */
+        $cover.css('background-image', "url(" + window.audioUrl + musList[j].cov + ")");  /* 更换对应歌曲海报 */
+        $music.attr('src', window.audioUrl + musList[j].voi);                             /* 更换对应歌曲链接 */
         $audioTitle.html(musList[j].tit);                               /* 更换对应歌曲名称 */
         $singer.html(musList[j].inf);                                   /* 歌手信息，在此直接放字符串了，也可以像歌词一样单独列出来 */
         $songList.find('.cur').removeClass('cur');
@@ -204,11 +200,6 @@ var initMusic = function () {
                     time = min * 60 + sec;
                     lrcObj[time] = lrcTxt;                     /* 时间戳 和 歌词 的键值对*/
                 }
-                /* lrcObj[time] = lrcTxt;在此处  不能正确解析 《独自去偷欢的》 歌词
-                 * 例如：[01:22.00][00:26.00]未去管 谁不满
-                 * [00:26.00] 时间点的歌词被解析
-                 * [01:22.00] 时间点的歌词没有解析
-                 * */
             }
             return lrcObj;
         }
@@ -218,10 +209,10 @@ var initMusic = function () {
     function renderLyric(i){
         $lyricList.stop().animate({top:0});
         $lyricList.empty();                      /*先清空歌词内容 */
-        if(musList[i].lrcUrl){                   /*这里的歌词是用url形式，先判断是否有歌词链接，再用ajax请求歌词*/
+        if(window.audioUrl+ musList[i].lrcUrl){                   /*这里的歌词是用url形式，先判断是否有歌词链接，再用ajax请求歌词*/
             $.ajax({
                 type: "get",
-                url: musList[i].lrcUrl,
+                url: window.audioUrl + musList[i].lrcUrl,
                 // url: "http://www.17sucai.com/preview/17147/2017-11-02/lrc/tfll.lrc",
                 success: function (lrc) {     /* 获取歌词 */
                     var lrcData = parseLyric(lrc);
@@ -237,6 +228,8 @@ var initMusic = function () {
                 },
                 statusCode:{
                     404:function(){
+                        var li = $("<li><span style='color: #ffffff;'>占无歌词</span></li>");
+                        $lyricList.append(li);
                         // 说明请求的url不存在
                         console.log("请求的歌词url不存在");
                     }

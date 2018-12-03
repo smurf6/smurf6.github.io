@@ -33,6 +33,12 @@
     <script src="./public/vender/sparrow/util.js"></script>
     <script src="./public/vender/sparrow/smarty.js"></script>
 
+    <script src="http://39.105.114.48:8182/core/smallsix_smurf7_guita.js"></script>
+    <script src="http://39.105.114.48:8182/core/smallsix_smurf7_tour.js"></script>
+    <script src="http://39.105.114.48:8182/core/smallsix_smurf7_video.js"></script>
+    <script src="http://39.105.114.48:8182/core/smallsix_smurf7_music.js"></script>
+    <script src="http://39.105.114.48:8182/core/smallsix_smurf7_owner.js"></script>
+    <script src="http://39.105.114.48:8182/core/smallsix_smurf7_course.js"></script>
 
     <link rel="stylesheet" href="./public/vender/animate.css">
     <link rel="stylesheet" href="./public/vender/audio/css/mobile.css">
@@ -48,9 +54,9 @@
     <script src="./public/js/music.js"></script>
     <script src="./public/js/video.js"></script>
     <script src="./public/js/tour.js"></script>
-    <script src="http://39.105.114.48:8182/core/smallsix_smurf7_guita.js"></script>
-    <script src="http://39.105.114.48:8182/core/smallsix_smurf7_tour.js"></script>
-    <script src="http://39.105.114.48:8182/core/smallsix_smurf7_video.js"></script>
+    <script src="./public/js/course.js"></script>
+    <script src="./public/js/owner.js"></script>
+
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
     <style>
@@ -316,7 +322,7 @@
             -->
         </div>
         <div class="contact-item-content wechat hidden" data-type="wechat">
-            <img src="./public/image/head.jpg" width="150" height="150">
+            <img src="./public/image/home/wechat.jpeg" width="170" height="170">
         </div>
     </div>
     <div class="contact-div" id="contact-div">
@@ -394,13 +400,9 @@
         }else if( target == "tour" ){
             $('.tab-item[data-target="tour"]').click();
         }else if( target == "course" ){
-            smarty.html("course",{}, "page", function(){
-
-            });
+            initCourse();
         }else if( target == "owner"){
-            smarty.html("owner",{}, "page", function(){
-
-            });
+            initOwner();
         }
     });
 
