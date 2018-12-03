@@ -3,6 +3,6 @@ function initMusicHtml() {
         initMusic();
         setTimeout(function () {
             $(".btn_play").click();
-        },2000);
+        },5000);
     });
 }
