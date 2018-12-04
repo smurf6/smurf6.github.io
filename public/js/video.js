@@ -4,16 +4,20 @@
 
 function videoHtml() {
     smarty.html("video",{}, "page", function(){
+        var isRequest = false;
         refresh("minirefresh",null, function () {
+            if( isRequest ){
+                return;
+            }
             var pageSize = 1;
             var pageIndex = $("#video-list > .card").children().length;
             if( pageIndex < 3 ){
                 pageSize = 3;
             }
             var param = {"pageindex":pageIndex,"pageSize":pageSize};
-            console.log(param);
+            isRequest = true;
             window.video.videoList(param, function (data) {
-                console.log(data);
+                isRequest = false;
                 if( data.res == 0 ){
                     window.miniRefresh.endUpLoading(true);
                     return;
