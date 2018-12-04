@@ -142,6 +142,10 @@ var initMusic = function () {
 
     /*  歌曲当前播放时间 和进度条对应 */
     music.ontimeupdate = function () {
+        setTimeout(function () {
+            $("#music-load").addClass("hidden");
+        },3000);
+        
         value = Math.round(music.currentTime);
         $scale.val(value);
         $timeCur.html(toTwo(value));/*加载载歌曲当前播放时间*/
@@ -264,9 +268,6 @@ var initMusic = function () {
             lineHeight = $lyricLi.height(),               /* 每行歌词的高度 */
             $li =  $('.list_'+value);                       /* 当前行歌词 */
         $li.addClass('on').siblings().removeClass('on');
-        setTimeout(function () {
-            $("#music-load").addClass("hidden");
-        },3000);
         nTop = $li.attr('data-line');                       /* 获取 当前行歌词 的行数 */
 
         if(nTop >2){                                        /*歌词高亮显示在第四行*/
