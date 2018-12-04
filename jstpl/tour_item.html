@@ -1,7 +1,7 @@
 {{foreach from=$res item=tour}}
-<div class="card tour-card">
+<div class="card tour-card tour-detail-link" data-id="{{$tour.id}}">
     <div class="tour-date">
-        20号
+        {{$tour.add_time|format_tour_date}}
     </div>
     <div class="tour-right-content">
         <div class="tour-image">

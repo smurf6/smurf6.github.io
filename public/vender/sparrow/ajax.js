@@ -149,6 +149,8 @@ sparrow_ajax.prototype = {
 	},
 	error_handle: function( ajax_obj )
 	{
+		window.miniRefresh.endUpLoading(true);
+
 		var title = '服务器返回错误';
 		//需要ajax数据, 返回的不是ajax数据
 		if ( 'json' === this.data_type && 4 === ajax_obj.readyState && ajax_obj.status < 300 )
