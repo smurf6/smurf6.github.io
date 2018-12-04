@@ -2,6 +2,9 @@
     color:  #0fceb9 !important;
 }
 
+.video-js,.vjs-poster{
+    background-color:rgba(80, 74, 74,10);
+}
 
 .video-js.vjs-playing .vjs-tech {
     pointer-events: auto;
