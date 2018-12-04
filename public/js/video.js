@@ -17,14 +17,13 @@ function videoHtml() {
             var param = {"pageindex":pageIndex,"pageSize":pageSize};
             isRequest = true;
             window.video.videoList(param, function (data) {
-                isRequest = false;
                 if( data.res == 0 ){
                     window.miniRefresh.endUpLoading(true);
                     return;
                 }else{
                     window.miniRefresh.endUpLoading(false);
                     smarty.append("video_item", data, "video-list", function(){
-
+                        isRequest = false;
                     });
                 }
             });
