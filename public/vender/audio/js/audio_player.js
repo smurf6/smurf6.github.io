@@ -145,7 +145,7 @@ var initMusic = function () {
         setTimeout(function () {
             $("#music-load").addClass("hidden");
         },3000);
-        
+
         value = Math.round(music.currentTime);
         $scale.val(value);
         $timeCur.html(toTwo(value));/*加载载歌曲当前播放时间*/
@@ -221,6 +221,10 @@ var initMusic = function () {
                 url: window.audioUrl + musList[i].lrcUrl,
                 // url: "http://www.17sucai.com/preview/17147/2017-11-02/lrc/tfll.lrc",
                 success: function (lrc) {     /* 获取歌词 */
+                    setTimeout(function () {
+                        $("#music-load").addClass("hidden");
+                    },7000);
+
                     var lrcData = parseLyric(lrc);
                     var n=0;                     /*这个标记歌词行数，方便歌词滚动*/
                     for( key in lrcData){        /*循环处理歌词*/
@@ -234,6 +238,9 @@ var initMusic = function () {
                 },
                 statusCode:{
                     404:function(){
+                        setTimeout(function () {
+                            $("#music-load").addClass("hidden");
+                        },7000);
                         var li = $("<li><span style='color: #ffffff;'>占无歌词</span></li>");
                         $lyricList.append(li);
                         // 说明请求的url不存在
@@ -241,6 +248,9 @@ var initMusic = function () {
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    setTimeout(function () {
+                        $("#music-load").addClass("hidden");
+                    },7000);
                     console.log(errorThrown);
                 }
             });
