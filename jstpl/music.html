@@ -1,8 +1,4 @@
 <div class="content music-page">
-    <div id="music-load" style="z-index:999;color: #ffffff;margin: 0 auto;width: 100%;text-align: center;position: absolute;top: 45px;">
-        <img src="./public/image/loading.gif" style="border-radius: 100%;width: 190px;height: 190px">
-
-    </div>
     <div class="music-box">
         <div class="bg_white mb_20 pb_20 pad30">
             <div class="box_radio">
@@ -14,7 +10,11 @@
                     <!--音乐控制面板-->
                     <div class="audio_btn">
                         <!--旋转碟片-->
-                        <div class="cover" id="play"></div>
+                        <div class="cover" id="play">
+                            <div id="music-load" style="z-index:999;color: #ffffff;margin: 0 auto;width: 100%;text-align: center;">
+                                <img src="./public/image/loading.gif" style="border-radius: 100%;width: 100%;">
+                            </div>
+                        </div>
                     </div>
                     <div class="music-nav">
                         <!--当前时间-->
