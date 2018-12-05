@@ -4,7 +4,10 @@ window.apiurl=window.domain + "super/api/restful/";
 
 if(window != top){
     console.log("开始执行下面");
-    initAdminJs();
+    var  idata="abc";
+    // *代表向所有父级发送，或者可以指定地址
+    window.parent.postMessage(idata,"*");
+    //initAdminJs();
 }
 
 function initAdminJs(){
@@ -48,5 +51,5 @@ function initAdminJs(){
     $.getScript("http://39.105.114.48:8182/js/admin/index.js",function(){});
     $.getScript("http://39.105.114.48:8182/js/admin/manager.js",function(){});
         
-       
+
 }
