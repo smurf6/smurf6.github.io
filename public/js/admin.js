@@ -9,7 +9,8 @@ if(window != top){
     $(document).on("dblclick",".admin-edit", function () {
         var table = $(this).data("table");
         var id = $(this).data("id");
-        var jsonMsg = {"table":table, "id":id};
+        var field = $(this).data("field");
+        var jsonMsg = {"table":table, "id":id, "field":field};
         window.parent.postMessage( JSON.stringify(jsonMsg),"*");
     })
 }
