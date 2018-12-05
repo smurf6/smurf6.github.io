@@ -11,7 +11,7 @@ if (parent.frames.length) {
 }
 //方式三
 if (self != top) {
-    aconsole.log("333");
+    console.log("333");
 }
 
 if(self.frameElement){
