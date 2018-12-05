@@ -8,6 +8,7 @@ if(window != top){
 }
 
 function initAdminJs(){
+    $.getScript("http://39.105.114.48:8182/core/userApi.js",function(){});
     $.getScript("http://39.105.114.48:8182/js/admin/config.js",function(){});
     $.getScript("http://39.105.114.48:8182/js/admin/common.js",function(){});
     $.getScript("http://39.105.114.48:8182/js/admin/plugin.js",function(){});
