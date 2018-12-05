@@ -2,7 +2,7 @@ window.domain="http://39.105.114.48:8182/";
 //window.domain="http://localhost:8182/"
 window.apiurl=window.domain + "super/api/restful/";
 
-if(self.frameElement == true){
+if(self.frameElement){
     console.log("开始执行下面");
     initAdminJs();
 }
