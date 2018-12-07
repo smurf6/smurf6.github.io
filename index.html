@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="./public/vender/audio/css/audio_player.css">
     <!--旋转动画插件-->
     <script src="./public/vender/audio/js/jquery.rotate.min.js"></script>
+    <script src="./public/vender/contextmenu/jquery.contextmenu.r2.js"></script>
     <script src="./public/js/refresh.js"></script>
     <!--音频播放器-->
     <script src="./public/vender/audio/js/audio_player.js"></script>
@@ -374,6 +375,15 @@
             <div class="pull-left" style="font-size: 18px;margin-top: 5px;margin-left: 1px;"><span id="contact-button-icon" class="fa fa-angle-double-right"></span></div>
         </div>
     </div>
+</div>
+
+<div class="contextMenu" id="adminMenu">
+    <ul>
+        <li id="menu-edit-field"> 编辑内容</li>
+        <li id="menu-delete"> 删除整行</li>
+        <li id="menu-edit-row"> 修改整行</li>
+        <li id="menu-edit-add"> 新增一行</li>
+    </ul>
 </div>
 <script>
     if( window.location.href.split("#").length == 2 ){
