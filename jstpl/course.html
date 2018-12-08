@@ -8,7 +8,7 @@
     {{foreach from=$res item=course}}
     <div class="card">
         <div class="card-header">{{$course.title}}</div>
-        <div class="card-content">
+        <div class="card-content admin-edit" data-field="content" data-table="course" data-id="{{$course.id}}">
             <div class="card-content-inner">{{$course.content}}</div>
         </div>
         <div class="card-footer">{{$course.price}}</div>
